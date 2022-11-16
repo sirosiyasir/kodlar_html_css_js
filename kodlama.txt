@@ -1,0 +1,1013 @@
+                           ÖNERİLEN WEB SİTELERİ: 
+faviconcc(web sitesi başlığı için görsel oluşturma)  
+flaticon(görsel bulmak için) 
+GIPHY(hareketli görsel için)
+https://css3buttongenerator.com/ (buton oluşturmak için)
+font awesome (güzel simgeler bulmak için {kullanabilmek için web sayfasındaki <link>'ini head etiketine yerleştir})(link java linki olacak ama problem değil eğer
+bulamadıysan profile>manage kits>sana verdikleri kite tıkla orada. Ayrıca kopyalayıp yapıştırdığın öğeyi büyütmek için class'ın içerisinde fa-4x yazarak öğeyi
+4x yapabilirsin(ders 6 bölüm 75)
+stackexchange (code golf): bir kodu mümkün olduğunca kısa yazabilme challenge
+adobe colo ve (özellikle bu) color hunt : web siten için seçmen gereken renk kombinasyonlarını sana gösterir (section 8 ders 96)
+DAILY UI : 100 günde 100 tasarım yapmak için bir challenge sitesi
+Collect UI : Tasarımla ilgili örnekler var
+https://www.w3schools.com/jsref/dom_obj_style.asp : javascriptte CSS özellikleri nasıl kullanılır
+minify : kodunu yalnızca tarayıcının okuyabileceği şekilde küçültür
+openweather: hava durumu API'sı alabiliriz (section 20 ders 241)
+postman : API'leri test etmek için kullanırız
+cryptii.com : hex 16'lık kodları ve bytes'ları yazıya dönüştürür
+mailchimp.com : email listesi oluşturmak için(section 20 ders 249)
+
+
+EK BİLGİ!
+Singleton(tek nesne) tasarım kalıbı, bir sınıfın tek bir örneğini almak için kullanılır.
+Amaç oluşturulan nesneye global erişim noktası sağlamaktır.Sistem çalıştığı sürece ikinci bir örnek oluşturulmaz, böylelikle istenen nesnenin tek bir defa oluşturulması 
+garanti altına alınacaktır. Singleton nesneler ilk çağırıldıklarında bir kere oluşturulurlar ve sonraki istekler bu nesne üzerinden karşılanır.
+
+                                
+!bilgi : komutlar belirli bir sırada ilerler. İlk yazılan kod sayfada en üstte görünür ve 'çocuklar ebeveynlere oturur!'. Yani HTML öğeler alt öğelerdir. Sonrasında
+yazılan kodlar onun üzerine oturur.
+bilgi! : öğelerin class'ına fa-4x yazarsak o öğe 4x büyür
+
+
+
+                                       HTML
+
+<input required : eğer doldurulacak bir alan varsa bu alanı doldurmanın zorunlu olmasını sağlar
+bilgi! : birden fazla öğenin içerisine aynı şeyi yazmak istediğimizde ' alt + sol tık 'la alt veya üst satırlara geçebilirsin
+bilgi! : yorum eklemek için eklemek istediğin öğeyi mausela kapla (altını çizmekte deniyor yani kopyala yapıştır yapmak için kullandığın sistem) ctrl ve / yap
+<hr size="3" : çizginin kalınlığını belirleyen parametre
+<hr noshade="" : gölge olup olmamasını belirtiyoruz
+<center></center> : ortalamak istediğimizi belirtiyoruz. (kapatılan etiket)
+!bilgi: // veya <!-- not --> : kullanarak yazdığım kod içerisinde kendi notumu oluşturabilirim
+<!DOCTYPE html> : browsere html sürümünün ne olduğunu söyler
+<meta name="description" content="web sitenin neyle alakalı olduğunu yaz. Bu yazı google aramalarında web sitenin hemen altında görüntülenecek" :web sitenin tanımı
+<em></em> : arasında yazan metine hem vurgu yapar hem de metini italik yapar (kapatılan etiket)
+<thead> : tablo etiketi içerisinde <head> oluşturmak için
+<th> : <thead> etiketi içerisine <td> değil <th> açılır
+<tbody> : tablo etiketi içerisinde <body> oluşturmak için
+<tfoot> : tablo etiketi içerisinde
+<form> : doldurulabilir bir form oluşturmaya yarar (kapatılan etiket)
+<form label> : kullanıcı arabirimindeki bir öğe için bir başlığı temsil eder.(kapatılan etiket)
+<form input : kullanıcının formda dolduracağı yeri oluşturan etiket
+<form input type="text" : kullanıcın yazı yazabileceği bir yer oluşturmasını sağlayan parametre
+<form input type="submit" : kullanıcın tıklayabileceği bir gönder kutucuğu oluşturur
+<form input type="color" : rengi belirleyebileceğimiz bir kutu oluşturur
+<form input type="checkbox" : onay kutucuğu oluşturur
+<form input type="file"	: dosya gönderimi için alan oluşturur
+<form input type="date" : tarih bilgisi girebileceğimiz bir alan oluşturur
+<form input type="range" : seçim aralığı oluşturabileceğimiz bir parametre
+<button> : kullanıcın tıklayabileceği bir buton oluşturur (kapatılan etiket)
+<textarea : kullanıcının mesaj yazabileceği bir kutucuk oluşturur
+<div> : html de kutu oluşturmamızı sağlayan etiket. Bu sayede içerikleri birbirinden ayırabiliriz.(kapatılan etiket)
+(div , body etiketinin içerisinde oluşturulduktan sonra ÖR: <div class="top-container"><h1>Yasir Çeşmeci</h1></div> , class vermemiz gerekir. ve css 'e bu class 
+ismiyle etiketimizin içerisinde bulunan öğelerle ilgili istediğimiz etkeni uygulayabiliriz
+<span> : html etiketleri içerisindeki yazının (altı çizii yapma, rengini ve yazı tipini değiştirme vb.) şeklini değiştirmek için kullanılır.(kapatılan etiket
+<span class="market" : CSS kısmında ' .market ' açarak oluşturduğumuz span etiketi içerisindekilerin özelliklerini yapılandırabiliriz.
+
+
+                                        CSS Media Query
+         !!!!!!!!MEDİA QUERY HER ZAMAN CSS'İN SONUNDA OLMALI YOKSA ÇALIŞMAZ!!!!!!!!!!!!
+YUKARIDAKİ YAZIYI OKU!!
+@media (max-width: 1028px) {
+
+#title {
+  text-align: center; 
+  position: static;                 : @media 'dan sonra yazdığımız "(max-width: 1028px)" maksimum 1028px olan ekranlar için geçerli kodu gösteriyor. Yani web sitemizi,    
+  transform: rotate(0);	               mobile tablete ve bilgisayara uyumlu hale getirmek istediğimiz zaman her birinde farklı(uyumlu) görünmesini sağlayabiliriz.
+}                                      Ayrı bunu hem id(#)'lerde hem de class(.)'larda yapabiliyoruz.
+
+}
+
+
+
+
+
+
+
+
+                                        CSS
+
+cursor: pointer;     : mause'la üzerine geldiğimiz zaman mause'ın şekli pointer olur (linke tıklayacağımız zaman dönüştüğü şekil)	
+
+.btn:focus   : ":focus" istediğimiz bir sınıfa, id'ye veya elemente tanıyabiliriz. Kullanıcı focusladığında yani üzerine tıkladığı, dokunduğu zaman ne olacağı söylüyoruz. background-color: #fff; yapabiliriz.
+
+__________________________________________________________
+body {
+  background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));      : web sitesini yukarıdan aşağıya iki renk  yapabiliyoruz. radial-gradient(); yaparsakta sağdan sola iki renk yapagbiliyoruz
+}   
+                                                                                  
+______________________
+position: relative;
+transform: translate(-50%, -50%);         : öğeyi sayfaya ortalamak için kullanılır (https://www.youtube.com/watch?v=_ERcJIacsKA  bu linkteki adam söylüyor)
+top: 50%                                    eğer iki öğeye uygulayacaksan; div oluşturup css'de bu özellikleri o div'e atayacaksın,!!!text-align center yapıp ortaya getireceksin(yoksa gelmez)
+left: 50%
+
+
+_______________________________________
+{min-height: 100vh;} : öğelerini ortalar
+
+text-decoration: yazının altını çizmemizi veya anchorun altındaki çizgiyi kaldırmamızı ve yazıya dekorasyon eklememizi sağlar
+
+!bilgi : CSS'de birden fazla öğeye(h1,h2,h3 gibi ana öğeler) aynı değeri vermek için CSS'e yazarken h1, h2, h3 {                                            yapabiliriz
+                                                                                                                font-family: 'Montserrat', sans-serif;
+                                                                                                                }
+!bilgi : class="container-fluid" oluşturup CSS'de padding: 7% 15% yaparsanız bu sınıfın içerisinde bulunduğu bütün divlere bu paddingi uygular. Diyelim ki birden fazla divin içerisine bu sınıfı verdik ama bir tanesinin
+üst padding'inin 7% değilde 3% olmasını istiyoruz. Bunun için o divin üzerine bir id="title" verip CSS'de bunu #title .container-fluid {                      yaparsak bu id'ye özel container-fluid bu paddingi uygular (section 7 ders 89)
+Eğer #title .container-fluid arasında boşluk varsa sağdan sola okunur eğer boşluk yoksa soldan sağa                                     padding: 3% 15% 7%
+                                                                                                                                        }
+CSS'de etiketler h1 {                şeklinde açılır
+                     color: green;
+                                  }
+box-shadow: öğelere gölge veriyor (istediğimiz renkte). Eğer görsel transparansa filter: drop-shadow(0 0 20px green); şeklinde yapabiliriz
+{align-items: center;} : öğelerin ortalanmasını sağlar
+! z-indeks: eğer öğen konumlandırılmışsa (absolute,relative,fixed gibi) { } yaparak o öğeyi diğer tüm öğelerin üstüne çıkmasını sağlarsın. Çünkü öğelerin
+z-indeksi normalde '0' dır. -1 yaparsan diğer tüm öğelerin arkasına gitmesini sağlarsın (Nerede işe yarayacağı section 7 ders 83)
+! head etiketi içerisinde kodumuzun tamamını etkilemesini istediğimiz bir şey olduğunda ama tek tek her kodun içerisine yazmak istemediğimizde kullanacağımız
+şey(Örneğin arka plan rengini değiştirmek istediğimizde 'body' etiketinin içerisine yazmak yerine head etiketinin içerisine): 
+<style> body { background-color: blue;} </style> yazabiliriz (HTML ETİKETİ İÇERİSİNDE YAPMAK İSTEDİĞİMİZDE <style> açıyor!!! CSS dosyasında açmıyoruz!!)
+hr {border-style: none; : çizgilerin şeklini belirleyen parametre
+hr {height: 2px;} : çizgilerin genişliğini belirleyen parametre
+hr {width: 30%;} : çizgilerin sayfada kaplayacağı genişliği belirleyen parametre
+hr {border-top-style: dotted;} :çizginin şeklini (yuvarlak vb.) belirleyen parametre
+hr {border-color: grey;} : çizginin rengini belirleyen parametre
+hr {border-width: 5px; : çizginin kalınlığını belirleyen parametre
+<link rel="stylesheet" href="css/styles.css" : ek bir dosya açıp (harici) css kodlarını yazdığımız zaman bu etiket sayesinde html yazdığımız sayfa için
+istediğimiz css kodları uygulanacaktır. (href="css/styles.css" deki 'css' klasörümüzün ismi , 'styles.css' klasörün içindeki css kodlarımızın olduğu yer.
+Tarayıcının css kodlarımızı algılaması için klasörün isminin css olması ve klasörün içinde kodlarımızı yazdığımız dosyanın ismi styles.css olmalı. <link
+etikini açtığımız zaman bize <link rel="stylesheet" href="/css/styles.css" olarak verecek. Bizim baştaki '/' silmemiz gerekiyor. Baştaki '/' kök anlamına
+geliyor ama kök için javascript olması gerekiyor.
+h1 {color: green;} : kelimelerin rengini değiştirmek için kullanılır.
+table {padding: 10px;} : satır boşluğu oluşturacak (derste verilmedi kendim buldum, css de boşluk için bunun mu kullanılması gerekiyor bilmiyorum)
+table {border-spacing: 10px;} : sutün boşluğu oluşturacak (derste verilmedi kendim buldum, css de boşluk için bunun mu kullanılması gerekiyor bilmiyorum)
+!CSS kodu yazarken, dahili (HTML içerisine yazmak) ve harici (Başka bir klasör oluşturup oradaki dosyaya yazmak) olmak üzere iki şekilde yazarız. Dahili her
+zaman hariciden önceliklidir. Yani aynı iki kodu hem dahili hem hariciye yazarsak web sitemize yansıyacak kod haricidir. AMA AMA AMA önerilen hariciye 
+yazmaktadır!!!!!
+!BİLGİ sınıflar ve id 'ler öncelikli olarak web sayfasına yansırlar
+class="yumurta" : bu etiket html etiketlerinin içerisine yerleştirilir. Bu sayede css'de ' .yumurta {background-color: red;} 'yaparak 'yumurta' classına sahip
+öğelerin arka planının kırmızı olmasını sağlarız. Birden fazla etikete uygulanabilir ve birden fazla class açılabilir (Section 4 and 37. ders)
+class="yumurta yuvarlak" : class etiketinin içerisine birden fazla sınıf ekleyebiliriz. Bu sayade hem .yumurta hem de .yuvarlak yazarak farkı parametreleri
+içerisine ekleyebilirim (Section 4 and 38. ders)
+.yuvarlak {border-radius: 100%} : seçtiğimiz öğeyi yuvarlak yapacaktır. (MDN'den border-radius 'u inceleyerek daha fazla şekil bulabilirsin)
+id="heading" : bu etiket de html etiketinin içerisine yazılır. bu etiket kullanılarak css'de istediğimiz özelliği içerisine 'id' yazdığımız etikete
+uygulayabiliriz. class 'dan farklı olarak TEK BİR ETİKETE ve SAYFADA TEK BİR SEFER uygulanabiliyor.(#heading {background-color: yellow;} şeklinde kullanılır)
+psuedo class : Bir CSS sözde sınıfı , seçili öğe(ler)in özel durumunu belirten bir seçiciye eklenen bir anahtar sözcüktür.Psuedo class olup olmadığını anlamının en kolay
+yolu başındaki ':' işaretidir(ÇOOOOOK ÖNEMLİ MDN'den kesinlikle yapabileceklerine bak!!!!)(Section 4 and 38. ders)
+:hover :kullanıcı bir işaret aygıtıyla bir öğeyle etkileşime girdiğinde eşleşir, ancak onu etkinleştirmesi gerekmez.
+Genellikle kullanıcı imleçle (fare işaretçisi) bir öğenin üzerine geldiğinde tetiklenir.
+{margin: 0;} : Web sitemizde oluşturduğumuz öğelerin (h1, div vb.) diğer öğelerden(body 'de buna dahil) ne kadar uzak olacağını ifade eder. Eğer '0' yaparsak diğer 
+öğelerle bitişik olacağı anlamına gelir
+!BİLGİ ' margin-left: auto; margin-right: auto; display: block; ' yaparsak öğelerimiz web sitemizin ortasına konumlanır
+{margin-left: 100px;} : sol tarafından 100px uzak olacağı anlamına gelir
+{margin-right: 0;} : sağ tarafındakilerden uzaklaşmayacağı anlamına , hiç boşluk olmayacağı anlamına gelir
+{margin-top: 0;} : üst tarafta hiç boşluk olmayacağı anlamına gelir
+{margin-bottom: 0;} : alt tarafta hiç boşluk olmayacağı anlamına gelir 
+{padding: 20px;} : içeriğinizin içinde bulunduğu kutucukla(hiç div etiketi eklemesende bile yazdığın her yazı eklediğin her öğe bir kutucuğun içerisindedir. Web Site kutucuklardan oluşur) 
+arasındaki boşluğu belirler (sadece padding 'e değer vererek 4 tarafada aynı boşluğu uygulayabilirsin)
+{padding-top: 20px;} : üst tarafta boşluk bırakır
+{padding-bottom: 20px;}: alt tarafta boşluk bırakır
+{padding-left: 20px;}: sol tarafta boşluk bırakır
+{padding-right: 20px;}: sağ tarafta boşluk bırakır
+{border: solid;} : oluşturduğumuz öğelere çerçeve ekleyecek
+{border: solid 10px;} : 10px kalınlığında bir çerçeve oluşturur
+________________________________
+{display: flex}
+{justify-content: flex-start} : "display: flex" yaparak esnettiğin öğeleri "justify-content: flex-start" yaparak kabın(div'in) başında hizalar. Eğer flex-end yaparsak kabın sonunda hizalar
+
+{display: inline;} : öğeyi satır içinde kendi yarattığı kadar boşluk olacak şekilde oluşturur (genişliğini kendin ayarlayamazsın)
+{display: block;} : öğeyi kendinden önce ve sonra satır boşluğu olacak şekilde oluşturur
+{display: inline-block;} : yanına başka öğelerin gelmesine izin vermeyen (<p>,<h1> vb) öğelerin , yanına öğe gelmesine olanak tanır (aynı zamanda öğelerin genişlikleriyle de oynayabilirsin)
+{display: none;} : öğenin kodda gözükmesine rağmen web sayfasında gözükmemesini sağlar
+{visibility: hidden;} : öğenin kodda gözükmesine rağmen web sayfasında bulunduğu yerde bir boşluk olmasını sağlar. Öğe web sitesi içerisinde gizlenir ama bulunduğu konumda yalnızca 
+web sitenin arka plan rengi görünür
+{position: static;} : html'de position ' static ' olarak gelir. Yani hiçbir oynama yapmasak dahi öğelerin position 'u static 'dir
+{position: relative;} : öğemizi kendi belirlediğimiz static konuma getiriyoruz. Öğemizin olması gerekn yere görebir kenar boşluğu eklemesini sağlar!
+{position: relative; 
+ right: 10px;
+ left: 10px;
+ top: 10px;
+ bottom: 10px;} : öğemizin yazdığımız konumdan 10px uzaklaşmasını sağlar
+{position: absolute;} : Mutlak konumlandırmadır (Section: 5 ders 48). Öğeyi bütün bir sayfada kenar boşluğu olacak şekilde diğer öğeleri hiçe sayarak konumlandırır (relativ ve absolute
+birlikte kullanılarak güzel çalışmalar yapılabilir. ÖR: <div class="conteiner">           .conteiner {                         .red {
+                                                        <div class="red">                             height: 400px;                 bacground-color: red;
+                                                        </div>                                        width: 400px;                  height: 200px;
+                                                        </div>                                        background-color: grey;        width: 200px;
+                                                                                                      }                              }
+{position: fixed;} : bu özelliği tanımladığımız öğe ekran kaydırılsa dahi web sitesinde konumlandığı yerde sabit kalacak ve ekranı kaydırırken hep orada duracak , ekran kaydırılsa bile
+gözükecektir.
+{text-align: center;} : Block öğelerinin , web sitesinde ortalanmasını sağlar (yükseklik veya genişlik verdiğin öğeler için bu kodla ortalayamazsın)
+{margin: 0 auto 0 auto;} : (Soldan sağa doğru ilk '0' üstü , ilk auto sağı , ikinci '0' altı , ikinci auto solu işaret eder) Öğelerin web sitesinde ortalanmasını sağlar. (genişlik ve
+yükselik verilen öğelerin)
+!BİLGİ: oluşturduğun classta daha fazla alan kazanmak için (section 5 ders 49 dakika 7.30) padding-top 'u kullanmalısın.
+3 YAZI TİPİ AİLESİ VARDIR
+{font-family: serif} : köşeleri çizgili şekil şukul yazı tipi
+{font-family: sans-serif} : daha sade okunması daha kolay yazı tipi
+{font-family: monospace} : kodlama yazarken bu dil ailesi kullanılır. (okunması daha kolay)
+!BİLGİ: Yazı tipi oluşturmak için google fontsa git>oradan istediğin yazı tipini seç ve ekleye tıkla>sağ üst köşede 'View Selected Families' e tıkla> oradaki tüm 
+i kopyala ve <head></head> etiketinin içine yerleştir. CSS'de de yazı tipini {font-family: *} yıldız olan yere ,google fonts'da view selected families tıkladıktan sonra aşağıda çıkan CSS rules to
+specify families'deki istediğin fontu koplaya ve yapıştır. (Örneğin montserrat'ın thin 100 , regular 400 , black 900'ünü aynı anda seçebilir linki yapıştırıp üçünü de font-families'de seçip kullanabilirsin
+(kullanırken font-weight'sini ayarlamayı unutma (örn 100 , 400 , 900)
+!BİLGİ : web sitesini iki yazı tipinde tutmak daha profesyonelce görünür
+{font-size: 526.5%;} : yazının dinamik olarak boyutunu belirler.(100% eşittir 16px . Bu yüzden 90px 'lik bir boyut istiyorsak 90/16 yapmalıyız)
+{font-size: 1rem;} : 1(r)em = 100% yani 16px (section 5 ders 53)
+!Eğer body içerisinde font size ayarlarsak ÖR: {font-size: 200%;} ve h1'in farklı olması isteyip onun içerisinde de font size ayarlarsak ÖR: {font-size: 526.5%}
+{font-weight: normal} : yazı tipi kalınlığını belirler
+{color: red;} : yazı tipi rengini değiştirmemizi sağlar
+{line-height: 2;} : 1 veya 2 yazılır. 2 yazmak altında ve üstünde ne varsa 2 ölçek boşluk bırakması anlamına gelir /* sonuna px em % gibi şeyler yazılmaz*/
+{float: left;} : yazıların resmin(fotoğrafın) yanında (yüzmesini) konumlandırılmasını , etrafını sarmasını sağlar
+!Bilgi : resimle yazı arasına kenar boşluğu vereceksen. Resme kenar boşluğu vermek bazen yazıya kenar boşluğu vermekten daha kolay olabilir
+
+ÖNEMLİ: Float yaptıktan sonra , float yaptığımız öğenin altında üstünde bulunan öğeler kayıyorsa sebebi yazının yeteri kadar yer kaplamaması (daha uzun olması) olabilir
+
+{clear: left;} : anti-float gibi düşünülebilir. Etrafını sarmasını istemediğimiz metin(vb.) için kullanabiliriz.
+{text-shadow: 1px 1px 2px black;} : Kendin buldum. Yazıya Gölge ekliyor
+{rotate: 15deg} : fotoğrafı 15 derece sağa çevirir
+
+
+
+
+
+                  BOOTSTRAP
+
+
+<nav></nav> : navigasyon oluşturur (üzerine tıkladığında seni ilgili sayfaya yönlendirir)
+<nav class="navbar" : biraz padding ve birkaç tane daha parametre ekler (ul ve li içerisine yaz)
+<a class="nav-link" href="#" : üzerine tıklandığında sayfada gidilmesini istediğin yere gitmek için bir yazı oluşturur (section 6 ders 66)
+<ul class="navbar-nav ms-auto" : buradaki m margin anlamına geliyor , buradaki s marginin start yani başlangıçtan yani sol taraftan oluşacağı anlamına geliyor
+!BİLGİ : Bootstrap linki head'e her zaman CSS linkinden önce yerleştirilmelidir
+Bootstrap>Doc>Grid>Grid Systems : Sayfadaki öğelerin sayfanın boyutuna göre kaç parça görünmesini istediğini ayarlıyorsun
+<class="col-6" : bir sutün 12 parçadan oluşur. col-6 yazarsak 2 parçaya bölmüş oluruz. (ekrandada iki parça gözükür)
+!Bilgi : HTML'de her şey yukarıdan aşağıya doğru sıralanır. Yani eğer bootstrap linkini css'den önce yüklersen önce bootstrap linkindeki css'ler işlenir daha 
+sonra kendi yazdığınız css'ler
+{class="container"} : web sitesine ortalayacak şekilde bir konteynır içerir ve öğeleri içerisine yerleştirir
+{class="container-fluid"} : web sitesinde öğeleri kapsayacak (web sitesindeki enin(yataylığın) tamamını kullanır) şekilde bir konteynır oluşturur. Bu konteynır
+otomatik bir şekilde ekran küçüldükçe küçülür ve bunu narin bir şekilde yapar (Section 6 ders 74)
+carousel : web sitesinde kaydırmalı bir alan oluşturmayı sağlar. (ders 7 bölüm 80-81)
+<div class="card-group">
+<div class="card" style="width: 18rem;"> : Card sınıfıyla "basic-standart-premium" gibi paket görselleri(kartları) oluşturabilir(ders 7 bölüm 82)(bununla ilgili masaüstünde yeni metin belgesi oluşturdum detayları orada) 
+</div>
+</div>
+
+
+
+ 
+                                JAVASCRIPT
+
+JSON : JavaScript Object Notation(Nesne Notasyonu)
+JSON.parse() : parantez içindekileri javascript kodlarına(nesnelerine) dönüştürür. hes kodlarda , bytes'larda kullanılabilir
+JSON.stringinfy() : tam tersi şekilde javascript kodlarını dönüştürür
+
+=_=_=_=_=_=_=_=_==_=_=_=_=_===_=_=_=_=_=_=_==_=_=_=_=_=_=_=_=_=_=
+HTML : new Date() , setTimeout , zaman , saat için örnek
+JS   :<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+      function showTime(){
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+      let time = hours +" : "+ minutes +" : "+ seconds;
+      let val;
+      if( hours > 12){
+        val = "PM"
+      } else {
+        val = "AM"
+      }
+      document.getElementById("MyClockDisplay").innerText = time + " " + val;
+      setTimeout(showTime, 100);
+      }
+      showTime();
+-----------------------------------------------------------------
+
+
+input.value = ''; yaparak input'ın içeriğini sıfırlayabiliriz
+
+let x = 10;
+let y = 20;              : eval, parantezi içerisindeki işlemi gerçekleştirir. Hesap makinesi kullanımında çok işe yarıyor. (input value'deki işleme "x" dersek eval(x) bizze input içerisindeki işlemin sonucunu verir)
+let text = "x" + "y";
+let result = eval(text);
+
+const: açılımı constant yani sabit demektir. Tıpkı var gibi " const number = 0 " yapabilir ve number isimli const 'a bir değer atamış oluruz. var'dan farkı ise eğer " var number = 0 " yapsaydık daha sonra " number = 2 " diyebilirdik yani var'ın içeriğini değiştirebiliyoruz ama
+const'un içeriği sabittir ve değiştirilemez 
+
+
+function withoutJquery (id) {
+  switch (id) {
+    case "green":                  : bir function'da id'yi seçerek gerçekleşmesini istediğimiz şeyleri switch'le yapabiliriz. burada htmlde bulunan " id='green' " i nasıl seçtiğimizi görüntüleyebiliri.z (Örneği Simon projemde mevcut)
+      alert("working");
+      break;
+
+============================================
+var productsResize = $('.carousel-item img');
+$(window).resize(function() {
+  if (window.innerWidth <= 1000){
+    productsResize.addClass('d-block w-100');         : ekran boyutuna göre sınıf ekleme ve çıkartma örneği (sadece 1000 yazınca oldu , neden başka ölçülerin olmadığını araştıracağım)
+  } else{
+     productsResize.removeClass('d-block w-100');
+  }
+});
+
+!!!BİLGİ!!! : Ünlem(!) işareti bir değeri tersine çevirir ÖR: !true === false , !false === true . Yani false'ın başına ünlem koyarsak o artık true olur. Bunun fonksiyonlara verdiğimiz true false değerleri için kullanabiliriz(Simon Game'de bir örneği var)
+
+document.querySelector(".firstDown").style.transform = "rotate(180deg)";  :seçtiğimiz öğeyi tam tersi çeviri. Bunu click anahtar kelimesinin içerisinde if'le yaparsak ve else if 'le de "rotate(0deg)" yaparsak tıkladığımızda öğe ters çevrilir
+tekrar tıkladığımızdaysa öğe eski haline döner. (FAQ çalışmamda bunu yapmıştım)
+
+!!BİLGİ!! : PROGRAMCILAR HER ZAMAN "0" DAN SAYMAYA BAŞLAR (Ör: Yasir 'in ilk harfi(Y) sıfır ve son harfi(r) 4. harftir)
+
+ÖR: var a = "3";
+    var b = "8"; diyelim ki a ile b 'yi yer değiştirmek istiyoruz ama bunu sayı kullanmadan ve a ile b'ye yeniden bir değer vermeden yapmak istiyoruz. Nasıl yaparız ? (section 9 ders 106 yapamazsan buradan kontrol et)
+
+
+ÖR:var tweet = prompt("Write your message");
+   alert("you write " + tweet.length + " character " + "you have " + (180 - tweet.length) + " character");  : bunu yaparak önce ekranda yazı yazılacak bir alan oluşturuyorsun yazıp gönderdikten sonra ekranda kaç karakter çıktığını ve daha
+kaç tane yazabileceğini söyleyen bir uyarı ekranı çıkıyor
+
+!bilgi : Javascript, bilgisayarın bizim için ne yapmasını istediğimiz bir komut dizisidir. alert("hello world"); dediğimiz zaman aslında say: hello world. demiş oluyoruz. yani bizim için hello world demesini sağlıyoruz
+yalnızca insan dilinde değilde bilgisayar dilinde bunu yapıyoruz.
+!bilgi : google> "shift + 7 (yani eğik çizgi) + j" yaparak javascript konsolu açabilir ve devamında sources'e gidip >> yazan yere tıklayıp snippet açabilir ve adını hello.js yaparak bir javascript yazabileceğin panel açabilirsin
+
+alert("Hello World");  : Ekranın üst kısmından bir uyarı kutucuğu gelir ve içerisinde Hello World yazar
+
+typeof("23") : tırnağın içerisine yazdığının sana ne olduğunu söyler. 23' sayı diyecektir , Yasir yazarsam string (bir yazı dizi) diyecek ve true veya false yazarsam da boolean diyecektir
+
+prompt("What is your name ?") : tıpkı alert gibi yukarıdan bir kutucuk çıkartır fakat bu sefer kullanıcının içerisine yazı yazabileceği bir kutucuk mevcuttur.
+
+var : Açılımı variable'dir değişken demektir. Tıpkı alert ve prompt gibi bir anahtar kelimedir. Bir kutu, bir değişken, bir veri kabı yarattığımız anlamına gelir. var'ı hafıza gibi düşünebiliriz örneğin " var myName = "Yasir" " dediğim 
+zaman var buradaki anahtar kelimedir , myName buradaki isimdir(myName anlamındaki isim değil, myName'nin yerine yazdığım her şey isimdir yani varın anahtar kelime olması gibi myName'de isimdir , istersem başka bir şeyde yazabilirim) , 
+tırnak içerisindeki de myName'de value'dir yani değerdir. var bu niteliğin sahip olduğu string'i server'a kaydeder ve ben istediğim zaman bana hatırlatır. Bunu da örneğin alert kullanarak yapabiliriz. ÖR alert(myName); 
+bu kodu girip enter yaptığım zaman uyarı kutucuğunda Yasir çıkar. Yani bana myName ismindeki value'nin değerini hatırlatır         
+
+var yourName = prompt("What is your name ?"); : Bu prompt'un cevabı artık var anahtar kelimesinin yourName isimli oluşturduğu kutucuğa kaydolacak. daha sonra alert("Nice to meet you " + yourName + "!"); yaparak alert kutucuğundan 
+'Nice to meet you Yasir!'in çıkmasını sağlayabiliriz
+
+!bilgi : var değişkeninizin ismini(var myName 'de myName bir isimdir) asla bir sayıyla başlatamazsınız , isim verirken asla iki kelime arasına boşluk koyamazsınız ve "$ , _ , sayı(sayı isimin başına gelemez) dışında" hiçbir sembol kullanamazsınız
+!bilgi : değişkene isim verirken ilk kelimeye küçük harfle ve sonraki kelimelere büyük harfle başlarsan o ismi okumak(doğru okumak) daha kolay olur 
+
+!!bilgi : Javascript'te "+" işareti birleştirici bir unsurdur. İki var ' ı birleştirmek istersek ÖR: var message = "Hello" ve var name = "Yasir" adlı iki var 'ımız olsun. Bu iki varın değerinin alertte gözükmesi için: alert(message + " there, " + name);
+yaparsak sonuçta bize "Hello there, Yasir" mesajını verir 
+
+.length : eğer . 'dan önce bir var ismi yazarsak bize o var'ın sahip olduğu değerin uzunluğunu söyler
+
+.slice(x,y) : slice kesmek anlamındadır. Yani x'den(başlangıç) y'ye kadar(son) belirlediğiniz kısmı keser. Noktadan önce yazdığın "var" ismine ait öğeleri keser ve yalnızca o kısmı alır. Ör: var name="Yasir" yazdık ve yalnızca ilk üç harfini istiyoruz.
+Öyleyse name.slice(0,3); yazmalıyız bu bize "Yas" ı verecektir. Eğer son üç harfini isteseydik o zaman name.slice(2,5) yazacaktır bu da bize "sir" i verecektir.
+
+alert(prompt("Write your message").slice(0,140))   : prompt yaptıktan sonra kullanıcı prompt' a 140 dan fazla karakter yazdıysa ve biz sadece 140 karakter istiyorsak kutucukta yalnızca 140' ının gözükmesini sağlayabiliriz.
+                   
+.toUpperCase : noktadan(.) önce yazdığın ismin(var' ın ismi) kelimelerini/harflerini büyük yapar (section 9 bölüm 112)
+
+.toLowerCase : noktadan(.) önce yazdığın ismin(var' ın ismi) kelimelerini/harflerini KÜÇÜK yapar (section 9 bölüm 112)
+
+6/2 : aradaki "/" işareti bölmedir kodumuza bunu ÖR: var d = 6/2; olarak yazarsak bize 3'ü verecektir
+6+3 : bize toplamı verecektir
+6-3 : bize çıkarmayı verecektir
+6%4 : bize 6 ve 4 'ün bölümünden kalanı verecektir
+45%2 : bize sayının tek mi çift mi olduğunu söyler . Eğer sonuç 0'sa çift sayıdır eğer sonuç 0 değilse tek sayıdır
+
+Increment
+var x = 5;
+x = x + 1; bu da x'i 5 yapar. Bunun pratik yoluysa x++ = 7 'dir.
+
+Decrement
+Aynı zamanda x-- = 4 'dır .
+
+var x = 5; için 
+x +=2; 'nin sonucu 7 'dir                 
+
+var x = 5;
+var y = 3; için   x +=y; 'nin sonucu 8 'dir . Bu yalnızca "+ işareti" için değil aynı zamanda " - , * , / " işaretleri içinde geçerlidir
+
+function : bir dizi talimat oluşturmanıza, bunları bir kod bloğu halinde paketlemenize olanak tanırlar (Sürekli kullanman gereken kodları bu sayede birleştirir ve tek tek yazmak yerine funciton halinde yazarsın)	
+function getMilk() {                       functionu oluşturmamız tıpkı 'var' gibidir. Function anahtar kelime ve getMilk verdiğimiz isimdir. Süslü parantezin içerisindeki her şeyse 'getMilk();' yazdığımız zaman
+                    alert("leaveHome")     yürütülecek kodlardır.
+                    alert("moveLeft")
+                    alert("moveLeft")
+                    alert("takeMilk")
+                   }
+!bilgi : google geliştirici araçları(f12)> yazdığımız kodları tümünü seçip 'ctrl + f' yaparsak ve isimlerini console.log dönüştürürsek kodumuz kullanıcıya gözükmez yalnızca console'da oynatılır      
+
+function getMilk(bottles) {                                                 
+                           console.log("leaveHome")
+                           console.log("moveLeft")
+                           console.log("buy" + bottles + "bottles of milk")       : bunu yaptıktan sonra function 'u çağırırsak ÖR: getMilk(2); fonksiyona bottles yazan yere 2 komutunu girmesini ve bize getirmesini söyleriz.
+                           console.log("moveLeft")
+                           console.log("takeMilk")
+                           }
+
+function getMilk(money) {                                                 
+                           console.log("leaveHome")
+                           console.log("moveLeft")
+
+                           var milkMoney = money / 1.5;
+
+                           console.log("buy" + milkMoney + "bottles of milk")       : bunu yaptıktan sonra function 'u çağırırsak ÖR: getMilk(10); fonksiyona money yazan yere 10 komutunu girmesini söylemiş oluruz. Bu sayede fonksiyon
+                           console.log("moveLeft")                                    money yazan yerleri 10 yapar ve 10 / 1.5 ' ten milkMoney yazan yerden bize 6.66666' yı getirir. Eğer küsüratlı olmasını istemiyorsak ufak bir değişiklikle
+                           console.log("takeMilk")                                    var milkMoney = Math.Floor(money / 1.5); yaparız ve kod bize tutarı yuvarlayarak verir
+                           }
+
+Math.round() : parantez içerisine girdiğimiz işlemi bize en yakın tam sayıya yuvarlayarak getirir.
+Math.floor() : parantez içerisine girdiğimiz işlemi bize aşağıya yuvarlayarak getirir.
+Math.pow (height,2) : height yazılan yerde girdiyi alacak ve karesiyle çarpacak. Eğer 2 değil de 3 yazsaydık küpüyle çarpardı
+Math.random() : rastgele bir sayı verir. Eğer belirli bir aralığı istiyorsak ÖR: 1 - 6 o zaman bir 'var' oluşturur ve onu 6'yla çarparız
+
+return : function'dan bir girdi alabildiğimiz gibi bir çıktı alabilmemizi sağlar. yani yukarıda yaptığımız işlemlerde girdi kaç süt alabildiğimizdir. eğer kodun sonu({süslü parantezin içinde olacak şekilde}) ' return money % 1.5 ' yaparsak
+bize sütü aldıktan sonra kalan para üstünü verecektir ve bu da çıktı olacaktır. Bu return ' u kaybetmemek için var açıp kaydedebiliriz.(var' ı functionu getirirken yapacaksın ÖR: var change = getMilk(5);)
+
+if (loveScore === 100) {
+                      alert("Your love score is " + loveScore + "%" + "You love each other like Kanye loves Kanye")    :  'if' kodu 'bu şey gerçekleşirse' ne olmasını istediğimizi yazabileceğimiz bir koddur. Eğer loveScore 100 olursa 
+                      }                                                                                                    kullanıcıya bu mesajı göndermesini söylüyoruz.
+
+
+if (loveScore > 70) {
+                      alert("Your love score is " + loveScore + "%" + "You love each other like Kanye loves Kanye")    :  Eğer loveScore 70'ten büyük olursa kullanıcıya bu mesajı göndermesini söylüyoruz.(aynısı '<' içinde geçerli)
+                      }                                                                                                    
+
+
+if (loveScore > 70) {
+                      alert("Your love score is " + loveScore + "%" + "You love each other like Kanye loves Kanye")    :   'else' kodu 'if' kodundaki geçerli değilse gerçekleşir. yani Ör: 'if user doesn't get number bigger then 70 this should be he/she gonna see   
+                    } else {                                                                                                this message'. Çok kullanışlı kodlar. Bu olmazsa bu olsun gibi kodda inanılmaz bir işlevsellik sağlıyor         
+                           alert("Your love score is " + loveScore + "%" + "You should find other one xD")  
+                           }
+
+BİLGİ! '===' eşitse , '!==' eşit değilse , '>' büyükse , '<' küçükse , '>=' büyük veya eşitse , '<=' küçük veya eşitsedir
+
+
+___________________________
+ '&&' ve demektir , '||'(düz çizgi: ctrl + alt + shiftin yanındaki ve windows tuşunun üstündeki tuş) veya demektir , '!' değil demektir. if ve else içerisinde kullanabileceğimiz önemli kodlardır!! 
+
+
+if (loveScore > 70) {
+                      alert("Your love score is " + loveScore + "%" + "You love each other like Kanye loves Kanye")    :     iki 'if' birden kullanabiliriz. Eğer bir if gerçekleşmezse öbürünün gerçekleşmesini sağlıyoruz ve bunu yaparken "&&" ve anlamında kullanıyoruz.
+                    } 
+
+                   if(loveScore > 30 && loveScore <= 70) {
+                                                          alert("Your love score is " + loveScore + "%" + "That's not cool")
+                                                          }
+
+function isLeap(year) {(bu)   
+ if (year % 4 === 0) {
+     alert("true");
+ } else {                        : bu fonksiyonda function oluşturup ismini 'isLeap' verdik ve parantezine de 'year' değerini verdik. sonra 'if' le dedik ki eğer 'year' ın 4' e bölümü kalansız çıkıyorsa alert true olduğunu söylesin. Sonra 'else' le dedik ki eğer bölüm
+     alert("false");               kalanlı çıkıyorsa alert bize false olduğunu söylesin.
+ }   
+
+}(burada kapanıyor)
+isLeap(2021)
+
+______________________________
+function isLeap(year) { 
+ if (year % 4 === 0 || year % 100 !== 0 && year % 400 === 0) {
+    return("Leap year.");                                   
+ } else {                                                            : bu fonksiyonda eğer 4' e bölümünde kalan olmuyor 'veya' 100'e bölümünden kalan oluyor 've' 400' e bölümünden kalan olmuyor leap year'dır eğer bu dediklerimiz dışındaysa not leap year' dır dedik.
+     return ("Not leap year.")                                         bu tarz fonksiyonlarda eğer birden fazla olması gereken ve olmaması gereken ihtimal varsa ||(düz çizgi: ctrl + alt + shiftin yanındaki ve windows tuşunun üstündeki tuş) veya diyebilir && kullana-
+ }                                                                     've' diyebiliriz.
+
+}
+isLeap(1998);
+
+
+BİLGİ!! : if içerisine bir if daha yazabilirsin. Örn if(blablabla){
+                                                                   if(blablablab){  (section 10 ders 130)
+                                                                                 }
+                                                                  }
+
+Bilgi! : else yerine else if 'ten kullanılabilir (farkını daha öğrenmedim ama sanırım birden fazla else kullanılması gerektiğinde lazım oluyor)
+
+var eggs = ["1", "2", "3", "4", "5"];       : 'var' içerisinde birden fazla öğeyi tutabilmemiz için parantezleri bu şekilde köşeli parantez olarak açmamız ve ismi çağırırken de bu şekilde köşeli parantezle çağırmamız gerekir. (bu sonuç bize eggs ismindeki var' ın içerisinden)
+var myEgg = eggs [1];	            '2' sonucunu getirecektir. Çünkü yazılımda saymaya sıfırdan başlanır) (eğer eggs.length:  yaparsak bize köşeli parantezin içerisinde kaç öğe olduğunu söyler)   
+
+!!BİLGİ : eğer yukarıdaki yumurta var' ına bakarsak ve oradaki var' da bir öğenin olup olmadığını kontrol etmek istersek: eggs.includes(3)(buradaki 3 öğedir yani eggs isimli var'ın bu öğeye sahip olup olmadığını sorgularız) yaparsak ve varsa bize true eğer yoksa bize
+false değerini verecektir
+
+!!BİLGİ!! : if ve else' yi ille function içerisinde kullanmak zorunda değiliz!
+
+.push(5);  : noktadan önce gelen öğenin içerisine parantez içerisinde yazanı getirir. Öğenin içerisine sona gelecek şekilde girer. ÖR: eggs.push(6); bunu sonucunda eggs' e 6' nın eklendiğini görüntüleyeceğiz
+userClickedPattern.length-1 : bu bize userClickedPattern dizisindeki son öğeyi verir
+.pop(6);  : noktadan önce gelen öğenin, parantez içerisinde bulunan sayıya sahipse o sayıyı o öğenin içinden kaldırır
+
+count++  demek , count = count + 1 'la aynı anlamdadır
+
+while() : while bir döngüdür. Parantez içerisindeki ifade doğru olmayana kadar bu döngü devam eder.(section 10 ders 136)
+ÖRN: var i = 1;
+     while(i<2) {console.log(i);
+                 i++;                   : bu döngüde i 1'e eşittir. while döngüsü i 2'den küçük olmayana dek devam edecektir. Lakin i++ yaptığımızdan döngü ilk sonucu verdikten sonra ikinci sonucu vermeyecektir çünkü artık i 2' ye eşittir. EĞER BİR FONKSİYON VARSA KESİNLİKLE O 
+                 }                        FOKSİYONUN İÇERİSİNDEKİ ÖĞELERİ {} İLE İÇİNE ALMALIDIR
+
+for() : tıpkı while gibi bu da bir döngü oluşturur.
+ÖRN: for(i=1; i<2; i++){
+                        //your code      : bu döngüde i 1'e eşittir. for döngüsünde bilgisayar sol baştan önce for'u tarayacak ardından i'yi 1 olacak alacaktır. Daha sonra i'nin 2' den küçük olup olmadığını kontrol edecektir. Bu kontrolden sonra kod kapanışta bulunan süslü paranteze(})
+                        }                  gidecek ve kodu tamamlayacaktır. Daha sonra tekrar başa dönecek ve bu sefer ' i++ 'ı tarayacaktır. i++ 'ın 2'den küçük değil 2'ye eşit olduğunu görüntüleyecek ve kodu bitirecektir.
+_______________________________
+document.querySelector("")  : parantez içerisine yazdığımız 'sınıfı(class) , id'yi , ve hatta div , img , h1 gibi' öğeleri seçmemizi sağlar(başına const div = document.querySelector("") yapıyoruz ki sonra işlev eklerken const'a verdiğimiz 'div ismini' kullanalım). daha sonra bu seçtiğimiz öğelere
+                              div.addEventListener("" , () => {                                   yaparak işlev ekliyoruz
+                                                               text.style.display = "block"
+                                                               }) 
+
+document.querySelector("h1").innerHTML = "Good Bye";  : Sunucu html içerisinde h1' i arayacak ve bulduğu zaman 'Good Bye' a eşitlyecek. böylece h1'de yazan yazı good bye olacak(yalnızca ekranda bulduğu ilk h1'i değiştirecektir)
+
+
+____________________________________
+var sehirler=["Kocaeli", "İstanbul", "Ankara", "İzmir"];
+var html="";
+for(var i=0;i<sehirler.length;i++){                                : bunun açıklamasını telefona ses kaydı yaptım
+                                   html=html+" "+sehirler[i];
+                                   }
+
+Properties:
+innerHTML
+style
+firstChild
+
+Methods:
+click()
+appendChild()
+setAttribute()
+__________________________
+document.firstElementChild : document web sitesinin kendisidir. web sitesinin ilk elementi HTML'dir. İkinci defa .firstElementChild yaparsak HTML'den sonra head etiketi gelir. Eğer ilk firsElementChild'den sonra .lastElementChild 
+yaparsak bu sefer bize html'deki son etiketi verir(muhtemel body'dir varsa footer). Tekrar tekrar bunu yaparak html içindeki öğelerimizi seçebilir ve üzerlerinde değişiklik yapabiliriz.İstersek bunu bir var'a kaydedebiliriz(Section 11 ders 141)
+
+document.getElementsByTagName("li"); : öğeleri seçerken taglarını (anchor'un a , heading h1,h2 , list'in li) kullanıyoruz. Eğer o öğeden birden fazla varsa 
+!!!! document.getElementsByTagName("li")[2].style.color ="red"; !!!! Bunu yaparak 3. li öğesini seçmiş olduk(yazılımda sayma 0'dan başlar) ve 3. li 
+öğesinin css'nin özelliği olan .style.color' la rengini kırmızı yapmış olduk
+document.getElementsByTagName("li").length; : kaç tane li öğesi olduğunu öğrenebiliriz 
+
+__________________________
+document.getElementsByClassName("btn"); : öğeleri class'larına göre alır ve burada önemli bir nokta şu ki : getElement(s) diyor yani çoğul olarak alıyor. Bu da demektir ki bir dize(köşeli parantez) oluşturuyor. Bu durumunda bizimde değişiklik
+yapmak istediğimizde document.getElementsByClassName("btn")[0].style.color="red" yapmamız lazım. SINIFI İÇEREN TEK BİR ÖĞE BİLE OLSA KÖŞELİ PARANTEZ ZORUNLU
+
+document.getElementById("title");  : HTML içine eklediğimiz id'leri(#) seçmemizi sağlar.Seçerken başına # koymaya gerek yok(element(s) değil element yazıyor TEKİL)
+
+document.querySelector("#title");  : HTML içine eklediğimiz hem id'leri hem class'ları hem de elementleri(h1,a,span,body,div) seçmemizi sağlar. bunu yaparken id'ye # ve class'la '.' kullanılır
+
+document.querySelector("li a");    : HTML'deki li öğesinin içindeki anchor'u bize getirecektir.(aynısını bir class'ın veya id'nin içerisindeki öğe içinde yapabiliriz. Ama eğer li içerisindeki class veya id'se o zaman boşluk bırakmayız)
+
+document.querySelector("#list .item") : id içerisindeki class'ı çağırdığımız zaman bize ilk class öğesini verecektir. Eğer bütün class öğelerini istiyorsak =>
+document.querySelectorAll("#list .item") : Bunu yaparak id içerisindeki bütün classları çağırmış oluruz ve hatta istersek köşeli parantez[] kullanarak yalnızca birini seçebiliriz
+
+____________________________________
+document.querySelector("h1").classList;                 : h1' e tanımlı class'ları gösterir
+document.querySelector("h1").classList.add("huge");     : h1'e 'huge' class'ının tanımlar
+document.querySelector("h1").classList.remove("huge");  : h1'deki 'huge' class'ını kaldırır
+document.querySelector("h1").classList.toggle("huge");  : h1'de huge class'ı varsa kaldırır eğer yoksa ekler 
+
+document.querySelector("h1").textContent ="hello";  : h1'i bulacak ve içindeki yazıyı helloyla değiştirecek
+document.querySelector("h1").innerHTML ="<em>Good Bye</em>";  : innerHTML'i textContent'ten ayıran özellik innerHTML ile yalnızca yazı değil aynı zamanda html tag'ı da ekleyebiliyoruz
+
+__________________________________
+.attributes : html etiketinin içerisindeki öz niteliklerdir (class, href ,)
+.getAttribute("href"); : noktadan önce selector edilen etiketin özniteliğini alır.(attribute sonunda s yok)
+document.querySelector("a").setAttribute("href" , "https://www.bing.com") : href özniteliğini bing adresiyle değiştirir ve link google'da değil bing'de açılır
+
+window.onload = function() {} : Function içerisinde olayların window (web sayfası) tamamen yüklendiği zaman gerçekleşmesini sağlar. (udemy'de yoktu kendim buldum)
+
+
+buttonStart.onclick = function(){} : butona bir id veriyoruz daha sonra bu id'yi javascriptte buttonStart var' ına eşitliyoruz(var buttonStart = document.getElementById("button-start")) bu buttonStart öğesini de onclickle birleştirip fonksiyonun içerisine ne gerçekleşmesini
+istediğimi yazıyoruz. Yazdığım şey butona tıklandığında gerçekleşecektir (udemy'de yoktu kendim buldum)
+
+setInterval(startTimer, 1000) : setInterval bir zaman başlatıcıdır. Parantezdeki ilk yazı bir function'dur.İkinci parametre, her yürütme arasındaki zaman aralığının uzunluğunu gösterir. (udemy'de yoktu kendim buldum)
+
+class="wrapper" : bu sınıfı verdiğimiz div'in içerisindeki öğeler sarılı olur (udemy'de yoktu kendim buldum)
+
+
+___________________________
+addEventListener("x", y);    : Anlamı olay dinleyicisi demektir. X'e gerçekleşmesini istediğimiz olayı(ÖR: click) yazıyorux y harfine de önceden gerçekleştirdiğimiz functionumuzu. Bu sayede tıklandığı zaman bu function(fonksiyonun sadece ismini yazacaksın parantez() veya süslü parantez{} koymayacaksın) 
+gerçekleşecek(başına document.'le bir html çağırmalısın)(section 13 ders 162)
+
+
+=========================
+function add(num1, num2){      function multiply(num1, num2){    function calculator(num1, num2, operator)       eğer toplama işlemi yapmak istersek = calculator(4, 5, add) fonksiyonunu çağırır ve sonuç 9 olur. Eğer çarpma işlemi yapmak istersek = calculator(4, 5, multiply) fonksiyonunu çağırır ve 20 buluruz.                                       
+ return num1 + num2;            return num1 * num2;               return operator(num1, num2)                  : calculator(4, 5, add) ' deki calculator function'dur, 4 calculator fonksiyonuna gider ve num1'in yerini alır , 5 yine calculator formuna gider ve num2'yu alır, add veya multiply ise yine calculator
+}                              }                                 }                                               fonksiyonuna gider ve operator değerini alır
+
+
+
+!!BİLGİ : google geliştiri araçlarında konsola debugger; yazarsan sana yaptığınız işlemleri adım adım takip ettirecek bir görüntü sağlar. Hata ayıklamak için kullanılır
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+document.querySelector(".resetButton").addEventListener("click", reset)
+function reset(){                                                         : buradaki window.location.reload(); 'ı function yardımıyla button'a bağladık ve button'a her tıklandığında sayfayı yenileyecek
+  window.location.reload();
+}
+
+=======================
+background-image: url("images/tom1.png");    : url parantezinin içerisine fotoğrafın olduğu klasörü(images) yazıyoruz ve daha sonra eğik çizgiyle fotoğrafın  adını yazıyoruz ve öğemizin arka planı o görsel oluyor
+
+========================
+var audio = new Audio("sounds/tom-1.mp3");      : audio adında bir 'var' oluşturduk ve "new Audio"'yla HTMLAudioElement'i oluşturduk. Oluşturduğumuz HTMLAudioElement'inin(new Audio()) parantezinin içerisine ses dosyamızı ve sonra sesi yazdık(sounds/tom-1.mp3)
+audio.play();                                    audio.play(); 'le de oluşturduğumuz audio var'ını play anahtar kelimesiyle çalıştırdık. Anahtar kelime çok önemli (Section 13 ders 165)
+
+==========================
+this : Anahtar kelimedir. Olaylarda(event(addEventListener)) kullanıldığında olayın kullanıldığı elementi temsil eder. ÖR: console.log(this) denildiği zaman içinde bulundukları elementi console yansıtacaktır. Elementin içindeki yansıtmak içinde console.log(this.innerHTML) kullanılmalı.(section 13 ders 165)
+
+****************************
+var infoMe = {                                                                                                                           var'a bir isim verip onu yalnızca tek bir bilgiye eşitlemek yerine süslü parantezin içerisine alıp farklı farklı bilgilere eşitledik
+  myName: "Yasir",                          alert("Hello my name is " + infoMe.myName + "I am working " + infoMe.workTime + " year" )  : bu sayede bir değişkene birden fazla bilgi ekleyip daha sonra o bilgileri çağırabiliriz. Bunu yaparak aslında bir obje oluşturmuş oluyoruz(section 13 ders 166)
+  workTime: 2,
+  workSkills: ["design" , "front-end dev."]
+}
+
+====*=========*========*=======
+Constructor Function (Kurucu Fonksyion)
+
+function BellBoy (name, age , hasWorkPermit, languages){
+this.name = name;                                            Kurucu fonksiyonu diğer fonksiyonlardan ayıran en belirgin özelliği function'ın isminin ilk harfi büyük yazılır("B"ellBoy). Bu fonksiyonu bir kere oluşturduktan sonra var bellBoy1 = new BellBoy("Yasir", 20, true, ["English", "Franche"]); yaparak 
+this.age = age;                                            : BellBoy'un içindeki name, age ve hasWorkPermit ve languages değerlerini doldurmuş oluruz. Dikkat edilmesi gereken kısım isime var'a isim verip eşitlerken function ismimizin hemen arkasına "new" anahtar kelimesini getirmemizdir
+this.hasWorkPermit = hasWorkPermit;                          var bellBoy1 = new BellBoy ("Yasir", 20, true, ["English", "French"]); şeklinde bu kurucu fonksiyonu donatabiliriz.
+this.languages = languages;
+
+this.cleanServices = function (){                          : Ayrıca kurucu fonksiyonlara bu şekilde fonksiyonlarda ekleyebiliriz. Parantez içerisinde bir değer vermemiz gerekmez. Direkt bellBoy1.cleanServices diyerek çağırabiliriz
+        alert("you got name")                                  
+}
+
+
+=======================================
+var buttonLength = document.getElementsByClassName("drum").length;
+
+for (i=0; i<buttonLength; i++){
+document.querySelectorAll("button")[i].addEventListener("click", function () {
+
+switch (buttonInnerHTML){
+
+case "w":
+var tom1 = new Audio('sounds/tom1.mp3');
+tom1.play();                                     Sürekli if-else yazmak yerine daha pratik bir yöntem. Seçtiğim buttonun(querySelectorAll) html'i içerisindeki w'yi case'le hedef alıyoruz. Eğer w varsa new Audio'daki sesimiz etkinleşecek. Daha sonra break;'le bu ihtimali bitiriyoruz ve diğer ihtimal olan a'ya geçiyoruz. Yeni
+                                               : bir case oluşturuyor ve ona da ne yapması gerektiğini söylüyoruz. Eğer html'de a varsa gerçekleşecektir. default: eğer bu öğelerin hiçbiri bulunmadıysa gerçekleşmesini istediğimiz şeydir. Üstte oluşturduğumuz var ve ardından gelen for döngüsü de i'i her seferinde bir defa 
+break;                                           arttırarak diğer htmlleri incelemeye yarıyor.
+
+case "a":
+var tom2 = new Audio('sounds/tom2.mp3');
+tom2.play();
+
+break;
+
+default: console.log(buttonInnerHTML);
+}
+})
+}
+===*===*===*=*=*=*======*====*
+document.querySelector(".butnSubmit").addEventListener("click",function (){
+  var text1 = document.querySelector(".firstText");
+  var text2 = document.querySelector(".secondText");
+                                                                                :eğer ".butnSubmit" class'ını verdiğimiz button'a tıklanırsa ".firstText" class'ını verdiğimiz yazının display(görüntü)'ı none olur (gizlenir), ".secondText" sınıfını verdiğimiz yazının display'ı block olur (ekranda görünür)
+
+  if(text2.style.display === "none"){
+    text2.style.display = "block"
+    text1.style.display = "none";
+  }
+
+})
+
+===================================
+document.addEventListener("keydown", function(){
+                                                           : "keydown" eventi bir tuşa basıldığında olayın tetiklenmesini sağlar.
+})
+
+
+document.addEventListener("keydown", function(event){
+                                                           : "event" anahtar kelimesi bir functionun içerisine girmemizi sağlar. Yani keydown eventinin arka planında gerçekleşen olaylara girmemize sağlar
+})                                                            bunun içinde console.log(event); yapmamız yeterlidir. Console'da bize bütün olayları gösterecektir.(e veya evt diye'de yazılabilir)
+
+
+document.addEventListener("keydown", function(){
+  makeSound(event.key);
+})                                                         : "keydown" , function(){makeSound(event.key)} yaparak girdiğimiz event'in, key'i ni event.key yaparak bulduk. sonra makeSound functionu oluşturup function'a ve switch'e key dedik.
+function makeSound(key){                                     Eğer key 'w' olursa gerçekleşmesini istediğimiz case'i oluşturduk 
+ switch (key) {
+   case"w":
+    var tom1 = new Audio("sounds/tom-1.mp3");
+     tom1.play();  
+}
+}
+
+__________________________________________
+setTimeout(function() {
+document.querySelector.classList.remove(".hidden");                  : Örnekteki(".hidden") sınıfını 1000 milisaniye içerisinde kaldırmasını söylüyoruz.Zamanlayıcı. (section 13 ders 172	)
+},1000)
+
+
+=====__________=====******=====__________
+
+var rates = document.querySelectorAll(".all-butn");
+var rating = document.getElementById("deneme");
+rates.forEach((rates)=>{                                             : "forEach" her bir öğe için demek. oluşturduğumuz rates isimli varın , seçildiği .all-butn sınıfına ait bütün öğeler için uygulamasını istediğimiz şeyi uygulayan bir fonksiyon yazdık(rating-card projesinde örneği var ,udemy dersinde yok kendim buldum)
+  rates.addEventListener("click", function () {
+  rating.innerHTML = rates.innerHTML
+})
+})
+                                                                            >>
+rates.forEach((rates)=>{
+rates.addEventListener("click", function () {
+rates.style.backgroundColor = "hsl(25, 97%, 53%)";                   : Seçtiğimiz sınıfın her bir öğesine bu şekilde css özelliği de atayabiliriz
+})
+})
+
+
+
+
+                                                                jQuery
+
+
+
+
+$ : jQuery için dolar işareti document.querySelectorAll anlamına gelir. $ işareti yerine jQuery 'de yazılabilir.
+
+$(document).ready(function (){
+                                                     : Eğer jQuery linki body etiketinden hemen önce konulmaz da head etiketinin içerisinde konulursa , çalışması için JS kodlarımızı bunun içerisine yazmamız gerekir. Bu kod sayfa tamanlandığı zaman JS'i çalıştır demektir
+})
+
+$("h1").css("color", "red");                         : jQuery ile css özelliklerini etkilemek istediğimizde bu şekilde yazarız
+
+$("h1").addClass("big-title");                       : jQuery ile sınıf eklemek istediğimiz zaman JS'nin aksine classList.add yapmıyor yalnızca addClass yapıyoruz
+$("h1").addClass("big-title margin-50");             : Birden fazla sınıf eklemek için iki sınıf isminide aynı tırnak işareti içerisine yazıyoruz ve aralarında bir boşluk bırakıyoruz
+$("h1").removeClass("big-title");                    : Eklenen sınıfı bu şekilde kaldırabiliriz
+
+$("h1").hasClass("big-title");                       : Öğenin o sınıfa sahip olup olmadığını kontrol eder
+
+$("h1").text("hello");                               : Seçtiğim öğenin içerisine yazı yazmamızı sağlar
+$("h1").html("<em></em>");                           : Seçtiğimiz öğeye etiket ekleyebilmemizi sağlar 
+
+$("a").attr("href", "www.mankensfashion.com");       : Attribute'i değiştirmemizi sağlar
+$("a").attr("src", "images/drum1.png");              : Aynı zamanda src içinde kullanabiliyoruz
+
+$("h1").click(function() {
+  $("h1").css("color", "purple");                    : addEventListener'la bir anahtar kelime ekleyeceğimiz zaman örnekteki gibi click anahtar kelimesiden sonra function oluşturmalıyız
+});
+
+$("h1").on("click", function() {
+  $("h1").css("color", "purple");                    :addEventListener yerine on 'da kullanabilir ve bu şekilde yine anahtar kelimeyle function ekleyebiliriz
+
+
+$("h1").before("<button>New</button>");              : Seçili HTML öğesinden önce bir öğe daha oluşturmamızı sağlar (aynı satırda değil bir üstünde)
+$("h1").after("<button>New</button>");               : Seçili HTML öğesinden sonra bir öğe daha oluşturmamızı sağlar (aynı satırda değil bir altında)
+$("h1").prepend("<button>New</button>");             : Seçili HTML öğesinin içinde o öğeden hemen önce bir öğe daha oluşturmamızı sağlar (aynı satırda seçili HTML öğesiyle yan yana)
+$("h1").append("<button>New</button>");              : Seçili HTML öğesinin içinde o öğeden hemen sonra bir öğe daha oluşturmamızı sağlar (aynı satırda seçili HTML öğesiyle yan yana)
+$("button").remove();                                : Eklenmiş olan BÜTÜN button öğelerini kaldırır
+
+__________________________________
+$("button").on("click", function() {
+  $("h1").hide();                                    : Seçili öğeyi button'a tıklandığı zaman gizler.
+})
+
+$("h1").show();                                      : Gizlenen Öğeyi açığa çıkartır.
+
+$("button").on("click", function() {
+  $("h1").toggle();                                  : Seçili öğeyi button'a tıklandığı zaman gizler ve yine button'a tıklandığı zaman açığa çıkartır
+})
+
+
+$("h1").fadeOut();                                   : Seçili öğeyi yavaşça gizler (bir anda kaybolmaz önce soluklaşır)
+$("h1").fadeIn();                                    : Seçili öğeyi yavaşça açığa çıkartır (bir anda ortaya çıkmaz önce soluk hali gelir)
+
+
+
+$("button").on("click", function() {
+  $("h1").fadeToggle();                                 : Seçili öğeyi button'a tıklandığı zaman yavaşça gizler ve yine button'a tıklandığı zaman yavaşça açığa çıkartır
+})
+
+
+$("h1").slideUp();                                      : Seçili öğeyi yavaşça yukarı kaydırıp kaybeder
+$("h1").slideDown();                                    : Seçili öğeyi yavaşça aşağıya kaydırıp ortaya çıkartır 
+
+$("button").on("click", function() {
+  $("h1").slideToggle();                                : Seçili öğeyi button'a tıklandığı zaman yukarı kaydırıp gizler ve yine button'a tıklandığı zaman yavaşça aşağıya kaydırıp açığa çıkartır
+})
+
+$("button").on("click", function() {
+  $("h1").animate({opacity: 0.5});                      : animate anahtar kelimesi öğenin "sayısal değer içeren özellikleri"yle oynamamızı sağlar. opacity'i 0.5(yani varsayılanın yarısı kadar) yaparak öğeyi soluklaştırabilirz.
+})                                                        animate'le daha birçok özelliği değiştirebiliriz lakin bu özelliklerin sayısal değer içermesi gerekiyor! (section 14 ders 184)
+
+________________________________________________
+
+$("button").on("click", function() {
+  $("h1").slideUp().slideDown().animate({opacity: 0.5});      : bu şekilde zincirleme özellik tanımlayabilir ve sanki canlı bir animasyon gerçekleşiyormuş gibi gösterebiliriz
+})
+
+===***===***___♦♦♦___♦♦♦===***===***===***
+            !!!!ÖNEMLİ!!!!
+
+$(".btn").click(function() {
+  var userClickColour = $(this).attr("id");                            Seçtiğimiz ".btn" sınıfına tıklandığı zaman, $(this).attr("id"); yazdığımız bu kod sayesinde $(this)'le yine o sınıfı seçecek ve o sınıftaki
+  var audio = new Audio("sounds/" + userClickColour + ".mp3");       : id'lerin .attr("id")'le özniteliklerini alacak(burada id'nin ismini alıyor). Bu sayede function içerisinde basit bir işlemle idleri seçebiliyor
+  audio.play();                                                        ve onları var'ın içerisine koyup o var'ı istediğimiz işlemde kullanabiliyoruz
+});
+
+===***===***___♦♦♦___♦♦♦===***===***===***
+             éééÖNEMLİéééé
+$(".btn").click(function() {
+                                                                       
+  var userChosenColour = $(this).attr("id");                           Oluşturduğumuz animatePress'te istediğimiz şey, kullanıcı hangi düğmeye ve hangi id'ye sahip düğmeye tıklıyorsa ona ".pressed sınıfı eklemek". Daha öncesinde
+  userClickedPattern.push(userChosenColour);                           oluşturduğumuz .click function'uyla zaten bu düğmeleri ve id'leri seçmiştik. Tekrar bir fonksiyon oluşturmak yerine, animatePress'e currentColour input'unu giriyoruz
+  animatePress(userChosenColour);                                    : ve daha sonra zaten halihazırda oluşumu olan click function'una örnekteki gibi ekliyoruz. Bu şekilde birçok functionu (farklı parametreler vererek) .click function'una
+});                                                                    ekleyebiliriz (Simon Game Challenge'de örneğini yaptım)
+                                                                       
+function animatePress(currentColour){                                  
+  $("#" + currentColour).addClass("pressed");                          
+}
+
+
+
+                                                           HYPER TERMINAL
+
+
+
+                                                                  !!BİLGİ!! 
+                                   nodemon 'u çalıştırmak için "nodemon app.js" yapabiliriz. Eğer çalışmıyorsa veya komut algılanamadı 
+                                             diyorsa çözüm nodemon'u yüklemektir. npx nodemon app yaparak çözülebilir
+
+
+
+HYPER UYGULAMASINDA önce ls yapıp nerede olduğunu kontrol etmeyi unutma!! masaüstüne gitmek istiyorsan cd Desktop yapmalısın
+
+!!BİLGİ!! : birden fazla html dosyası oluşturacaksan bir kere touch komutu kullanıp html dosyalarını yazabilirsin ÖR: touch signup.html success.html
+
+mkdir : make directory demektir. Bulunduğun konumda klasör oluşturabilmeni sağlar
+
+ls : bunu yazdığımız zaman bize bulunduğumuz konumdaki bütün dosyaları listeler 
+
+ls -a : gizli dosyaları da listeler. (ÖR: git bir gizli dosyadır)
+
+cd : change directory demektedir. İçerisinde bulunduğunuz konumda bulunan images klasörüne gitmek için " cd images " yazmanız yeterlidir
+
+cd ~ : kökümüze geri dönmemizi sağlar (git bash'te bunu yapınca en en başa dönüyor ls yapıp kontrol etmeyi unutma)
+
+cd Desktop/benimdenemem/images/icon : dediğimiz zaman desktoptan icon klasörüne gider.
+
+!!!BİLGİ!!! yukarı-aşağı tuşlarını kullanarak daha önce yazdığın komutlar arasında geçiş yapabilirsin
+
+cd .. : cd'den sonra iki nokta koymak şu anda bulunduğun konumdan bir adım geriye gitmek anlamına gelir
+
+ctrl + alt : yazdığınız komut satırının herhangi bir yerine mause 'la dönemezsin , ctrl + alt yaparak mause'la satırda tıkladığın yere gidebilirsin
+
+crtl + a : ctrl + a satırda en başa dönmeni sağlar
+ctrl + e : satırda en sona gitmeni sağlar
+ctrl + u : yazdığınız komut satırını siler
+
+touch Text.txt : touch sayesinde sonuna uzantıları yazarak dosyalar oluşturabiliriz. burada Text isminde bir not defteri oluşturmuş oluyoruz
+
+start Text.txt : touch'la oluşturduğumuz not defterini açmamızı sağlar
+
+start Atom Text.txt : bu komutu çalıştırdığımda Text.txt dosyasını Atom'da çalıştıracak
+
+=== rm'leri KULLANIRKEN DİKKATLİ OL !!! YIKICI KOMUTLAR !! ===
+rm : bir dosyayı klasörden kaldırmamızı sağlar ÖR: rm Text.txt ve enter'ladığımızda bu dosya kaldırılır(klasör kaldıramazsın)
+
+rm * : klasörde bulunan bütün dosyaları kaldırır (rm'leri kullanırken dikkatli ol!!! Kesinlikle list yap ve nerede olduğunu hatırlar)
+
+rm -r : -r'dan sonra yazdığımız klasörü kaldırır (rm'leri kullanırken dikkatli ol!!! Kesinlikle list yap ve nerede olduğunu hatırlar)
+
+pwd : o sırada bulunduğun komut dizisinin ne olduğunu söyler (nerede olduğunu söyler)
+
+node script.js : node'dan sonra script.js yazarak hyper panelinde içerisinde bulunduğumuz klasördeki script.js'in kodları görüntülenir
+
+node : sadece node yazarsak hyper'da REPL'in içerisine girmiş oluruz. Read Evolution Print Loop demektir. Buraya girdiğimiz zaman google geliştiri araçlarında bulunan console'da yaptıklarımızı yapabiliriz Ör: console.log("Hello") yaparsak hyperda Hello gözükecektir.
+
+.exit(Ctrl + C x2) : node' la girdiğimiz REPL'den .exit yazarak veya iki defa Ctrl + C yaparak çıkabiliriz.
+
+clear : konsolda yazanların tamamını temizlemek için kullanılabilir
+
+==========================================
+AŞAĞIDAKİ KODLARI script.js 'e yazıyoruz
+const fs = require("fs");                       : const fs = require("fs") node.js'in komutlarını kullanabilmek için oluşturduk(zorunlu). daha sonra node.js kodumudu olan fs.copyFileSync("","")'ı kullandık ve kopyalamak istediğimiz txt dosyasını seçip , kopyalanmasını istediğimiz dosyayı oluşturmasını söyledik.
+fs.copyFileSync("text1.txt", "text2.txt");        bu kodu yazdık ama gerçekleşmesi için hyper'da bu kodları sahip olduğu .js'i çalıştırmamız lazım. Hyper'da bu dosyaların bulunduğu klasörün içerisine giriyoruz > cd Desktop/nodetry > node script.js
+
+npm init : npm dosyalarının içerisine girmemizi sağlar
+
+npm install x : x yerine npm paketinin ismini yazacağız ve yazdığımız paketi yükleyecek
+
+
+
+                                                                            API
+
+                                                                                  !!BİLGİ!! 
+                                   nodemon 'u çalıştırmak için "nodemon app.js" yapabiliriz. Eğer çalışmıyorsa veya komut algılanamadı 
+                                             diyorsa çözüm nodemon'u yüklemektir. npx nodemon app yaparak çözülebilir
+
+====================ÖNEMLİ====================
+BUNU KENDİN YAZ KOPYALA YAPIŞTIR YAPMA 
+const express = require("express");
+
+const app = express();
+
+app.get("/", function(req, res) {                  : API'yı çağırmak için kullanılır. app.get'in içerisine yazılır. google'da localhost:3000 yaparak görsel halini görebilirsin
+  res.send("server is up and running.")
+})
+
+app.listen(3000, function() {
+  console.log("server is running on port 3000");
+})
+
+
+
+
+const express = require("express");
+const https = require("https");
+
+const app = express();
+
+app.get("/", function(req, res) {
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=f6fd89e0f96fa7d93f588f981763ab86"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
+  https.get(url, function(response) {
+    console.log(response)
+  })
+})
+
+app.listen(3000, function() {
+  console.log("server is running on port 3000");
+})
+
+|| || YUKARIDAKİ ÖRNEKTEKİ CONSOLE.LOG'U DEĞİŞTİRİP response.statusCode'u çağıralım || ||
+console.log(response.statusCode) : sayfayı yenileyip hyper'da kontrol ettiğimizde bize 200 sonucu vermeli(https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) eğer farklı bir sonuç veriyorsa istekte bir hata var demektir
+
+|| || YUKARIDAKİ ÖRNEĞİN DEVAMI || ||
+https.get(url, function(response) {
+    console.log(response)
+response.on("data", function(data){
+ JSON.parse(data)                                : JSON.parse() sayesinde aldığımız dataları Javascript nesnelerine dönüştürür
+})
+  })
+
+|| || YUKARIDAKİ ÖRNEĞİN DEVAMI || ||
+https.get(url, function(response) {
+    console.log(response)
+response.on("data", function(data){
+ const weatherData = JSON.parse(data)            : JSON'a dönüştürdüğümüz data'dan main objesini ve main objesinden de temp değerini almamızı ve console'a aktarmamızı sağladı
+ const temp = weatherData.main.temp                main'i ve temp'i JSON'da bulmanın kolay yolu; https linkini(API'nın linkini) google'da aratarak ve JSON viewer pro'yla JSON'a dönüştürerek istediğimiz objenin üzerine tıklayarak üstüne tıklayıp
+ console.log(temp)                                 solunda çıkan kutucuktan copy path diyerek yolu kopyalayıp weatherData'nın yanına yapıştırabiliriz
+})
+  })
+
+
+!!!BİLGİ!!! : bir API'de 2 tane res kullanamazsın. Kullanmaya çalışırsan ERR_HTTP... hatası alırsın
+
+res.send()  : res.send()'i yalnızca bir sefer çağırabiliriz. Eğer birden fazla api çıktısı almak istiyorsak res.write()'ı kullanacağız ve yine daha sonra res.send()'i çağıracağız
+
+res.write("<img src="+ imageUrl +">") : imageUrl'ye kaydettiğimiz url'deki image'i bu şekilde çağırabiliriz. Ayrıca write'ın içerisine tıpkı img etiketi gibi etiketler yazabiliriz
+
+================= INDEX.HTML'İ ÇAĞIRMAK İÇİN  ===================
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html")
+}) 
+
+================= CSS'i ÇAĞIRMAK İÇİN  ===================
+app.use(express.static("public"))     : style.css'imizi css dosyamıza koyduktan sonra css'imizi (varsa images'lerimizi) public adında bir dosyanın içerisine koymalıyız
+
+npm i body-parser : hyper'dan klasörümüze indirdiğimiz taktirde index içindeki name'leri bize .js içerisinde seçtirebilecek
+
+const bodyParser = require("body-parser");            : bodyParser'i app.js'mize ekledik
+app.use(bodyParser.urlencoded({ extended: true }))    : || aktif ettik
+app.post("/", function(req, res) {                    : req.body.cityName yaparak index.html içerisindeki name'i seçtik.
+ console.log(req.body.cityName)                         *post istediğinin gerçekleşmesi için html'de method="post" belirtmeliyiz. post'un gideceği yeri belirtmek içinde yine aynı yerde action belirtmeliyiz bunuda action="/" şeklinde yapabiliriz
+})
+
+
+                                                        HEROKU
+
+HEROKU'YA VE TABİ GİT'E YÜKLEME YAPMAK İÇİN (section 20 ders 251'i ziyaret edebilirsin)
+
+===========HEROKU===========
+app.listen(process.env.PORT || 3000, function () {
+  console.log("server is running on port 3000")
+})
+
+touch Procfile yaparak Procfile adında yeni file oluşturup içerisine web: node app.js yazmamız şart. Bu sayede heroku hangi script'i ve hangi yöntemle çalıştırmak istediğimizi bilecek
+
+                                        =========▓▓▓ ÖNEMLİ ▓▓▓=========
+Eğer projende değişiklik, ekleme yapmak istersen hyper'da " git add . " enter ve daha sonra " git commit -m 'buraya da neyi değiştirdiğini yaz' " enter ve finally " git push heroku master " yapman yeterli (git'e girmeyi unutma)
+
+
+
+
+                                                      - Git ve Version Control Systems -
+
+git init: bu komutla içerisinde bulunduğumuz folder'a git oluşturabiliriz
+
+git status : bu komutla içerisinde bulunduğumuz folder'daki çalışma dizinimizi gösterir (ÖR: index.html) 
+
+git add "dosya adı": bu komutla içerisinde bulunduğumuz folder'daki seçtiğimiz dosyayı staging area' ya eklemiş oluruz
+
+git add . : bu komutla bulunduğumuz klasördeki bütün dosyaları git'e(staging area'sına) eklemiş oluruz
+
+git commit -m "make <h1> title" : İlk commit'i yazmak için bulunduğun klasöre git commit komutunu yazacaksın. -m "" ' le de bir yorum bırakacaksın ki ileride dönüp baktığında bu version'da ne olduğunu ve ne yaptığını bilebilesin
+
+git log : bu komutla , bulunduğun version'la ilgili tarih , bu versionu yapan kişi bir hash komutu ve en altında da yazdığımız yorumu görüntüleriz(-m "") 
+
+git diff "dosya ismi" : bu komutla "" içerisideki dosyanın git commit'le yayınladıktan sonra üzerinde yapılan değişiklikleri görebiliyoruz
+
+git checkout "dosya'nın ismi" : bu komutla , git commit'le yayınlayıpta bir süre sonra üzerinde değişiklik yaptığımız dosyaları git commit'le yayınlanmış haline döndürebiliriz
+
+git remote add origin https://github.com/sirosiyasir/dosyaismi   : bu komutun git remote add kısmı "origin adındaki https linkine girmemizi sağlar" . Origin geleneksel olarak kullanılan uzak repolara girerken oluşturduğumuz isimdir 
+ https linki de oluşturduğumuz github reposundan alıyoruz. (section 21 ders 255 dakika 5.20)
+
+git push -u origin master  : bu komut sayesinde daha öncden git remote add origin https'le seçtiğimiz repo'ya kendi yerel dosyalarımızı yükleyebiliyoruz
+
+!!BİLGİ!! working directory(bilgisayarımızdaki çalışmamız) > staging area(git'e çalışmamızı izlettiğimiz kısım) > local repository(git version'larını kaydettiğimiz kısım) > remote repository
+
+git rm --cached -r .  : bu komut git add yaptığımız bütün dosyaları staging'den kaldırır(bunu yaparken nerede olduğuna dikkat et)
+
+touch .gitignore  : bu komut sayesinde bizim dışımızda başka kimsenin görmesini istemediğimiz dosyaları göz ardı edebileciğimiz bir dosya oluşturur
+
+gitignore dosyası : gitignore dosyasına tam adını(uzantısı dahil ÖR: .txt .html) yazdığımız dosyalar gizlenir (section 21 ders 257 dakika 7)
+
+git clone "url": bu komut sayesinde tırnak işaretlerinini yerine (tırnakların içine değil) github'dan klonladığımız proje linkini yapıştırarak masaüstümüze klonlayabiliriz (cd Desktop yaptığından emin ol)
+
+git branch "isim" : bu kod mevcut olduğumuz klasörde oluşturduğumuz git versionlardan birine alt dal (yani 2'den 3. version'a geçiş değil de 2.2 version gibi) oluşturmamızı sağlar
+
+git branch  : yazarak hangi dallara sahip olduğunu görüntüleyebilirsin

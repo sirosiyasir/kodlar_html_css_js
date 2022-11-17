@@ -903,7 +903,7 @@ const https = require("https");
 const app = express();
 
 app.get("/", function(req, res) {
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=f6fd89e0f96fa7d93f588f981763ab86"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=(APIkey-buraya-gelecek)"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
   https.get(url, function(response) {
     console.log(response)
   })

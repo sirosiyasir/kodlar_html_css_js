@@ -252,6 +252,24 @@ carousel : web sitesinde kaydırmalı bir alan oluşturmayı sağlar. (ders 7 b�
  
                                 JAVASCRIPT
 
+
+input.addEventListener("keydown", (event)=> {
+  if(event.key === "Enter"){                         : enter'a bastığımız zaman sendButton id'sine sahip öğenin tıklanması komutunu veriyoruz
+    sendButton.click()
+  }
+})
+
+let i = 0
+let txt = "Yasir Çeşmeci"
+let speed = 50
+function typeWriter() {
+  if (i < txt.length) {                                            : onclick eventiyle birlikte kullanılınca animasyonlu text oluşturmamızı sağlıyor
+    document.getElementById("myName").innerHTML += txt.charAt(i)
+    i++
+    setTimeout(typeWriter, speed)
+  }
+}
+
 JSON : JavaScript Object Notation(Nesne Notasyonu)
 JSON.parse() : parantez içindekileri javascript kodlarına(nesnelerine) dönüştürür. hes kodlarda , bytes'larda kullanılabilir
 JSON.stringinfy() : tam tersi şekilde javascript kodlarını dönüştürür
@@ -903,7 +921,7 @@ const https = require("https");
 const app = express();
 
 app.get("/", function(req, res) {
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=f6fd89e0f96fa7d93f588f981763ab86"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=(APIkey-buraya-gelecek)"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
   https.get(url, function(response) {
     console.log(response)
   })

@@ -16,7 +16,8 @@ openweather: hava durumu API'sı alabiliriz (section 20 ders 241)
 postman : API'leri test etmek için kullanırız
 cryptii.com : hex 16'lık kodları ve bytes'ları yazıya dönüştürür
 mailchimp.com : email listesi oluşturmak için(section 20 ders 249)
-
+TMDB: film ve tv API'leri içeriyor
+OMDb: film API'si içeriyor
 
 EK BİLGİ!
 Singleton(tek nesne) tasarım kalıbı, bir sınıfın tek bir örneğini almak için kullanılır.
@@ -63,6 +64,14 @@ bilgi! : yorum eklemek için eklemek istediğin öğeyi mausela kapla (altını 
 ismiyle etiketimizin içerisinde bulunan öğelerle ilgili istediğimiz etkeni uygulayabiliriz
 <span> : html etiketleri içerisindeki yazının (altı çizii yapma, rengini ve yazı tipini değiştirme vb.) şeklini değiştirmek için kullanılır.(kapatılan etiket
 <span class="market" : CSS kısmında ' .market ' açarak oluşturduğumuz span etiketi içerisindekilerin özelliklerini yapılandırabiliriz.
+<iframe
+  width="1280"
+  height="720"
+  src="https://www.youtube.com/embed/<%= movieKey %>"                                                : youtube'dan video göstereceksen linkteki watch?v yerine embed kullanmalısın. Çünkü watch kullandığın
+  frameborder="0"                                                                                       zaman video sayfana gömülmek istemiyor ama embedle gömebilirsin(Youtube'da videoya sağ tık yapıp yerleştirme kodunu kopyaladan alabilirsin)
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
 
 
                                         CSS Media Query
@@ -86,6 +95,12 @@ YUKARIDAKİ YAZIYI OKU!!
 
 
                                         CSS
+
+ -webkit-transition: all 1.3s ease-in-out;
+ -moz-transition: all 1.3s ease-in-out;
+ -o-transition: all 1.3s ease-in-out;                  : Style'ına bunları yazdığımız element, class veya id'deki değişimler daha yavaş gerçekleşir. 1.3s delay olur.(Örneği apple_apps_website'da mevcut)
+ -ms-transition: all 1.3s ease-in-out;
+ transition: all 1.3s ease-in-out;
 
 cursor: pointer;     : mause'la üzerine geldiğimiz zaman mause'ın şekli pointer olur (linke tıklayacağımız zaman dönüştüğü şekil)	
 
@@ -251,6 +266,24 @@ carousel : web sitesinde kaydırmalı bir alan oluşturmayı sağlar. (ders 7 b�
 
  
                                 JAVASCRIPT
+
+
+
+window.addEventListener("resize", function (event) {
+  // kod buraya :  if(window.innerWidth >= 575){                       şekilde gelecek  : vanilla JS'le ekran boyutuna göre yeniden düzenleme
+                                                //gerçekleşecek eylem
+                                                }
+  },true)
+
+
+
+function scrollAnimation() {
+  let scrolly = window.scrollY
+  document.getElementById("calculatorid").style.transform =           : sayfa aşağıya kaydırıldıkça seçtiğimiz öğenin döndürülmesini sağlar
+    "rotate(" + scrolly / 1.5 + "deg)"
+  setTimeout(scrollAnimation, 10)
+}
+scrollAnimation()
 
 
 input.addEventListener("keydown", (event)=> {
@@ -717,7 +750,10 @@ rates.style.backgroundColor = "hsl(25, 97%, 53%)";                   : Seçtiği
 })
 })
 
-
+===.map yöntemi===
+[9, 16, 25].map((id) =>      : .map yönetimiyle birden fazla öğe için aynı işlemi gerçekleştirebiliyoruz(movies projesinde örneği var)
+Math.sqrt(id) 
+)
 
 
                                                                 jQuery
@@ -831,6 +867,7 @@ function animatePress(currentColour){
                                              diyorsa çözüm nodemon'u yüklemektir. npx nodemon app yaparak çözülebilir
 
 
+code . : komutuyla vs code'da içerisinde (cd yapıp gittiğin klasör) bulunduğun klasörü açabilirsin
 
 HYPER UYGULAMASINDA önce ls yapıp nerede olduğunu kontrol etmeyi unutma!! masaüstüne gitmek istiyorsan cd Desktop yapmalısın
 
@@ -975,6 +1012,43 @@ app.post("/", function(req, res) {                    : req.body.cityName yapara
  console.log(req.body.cityName)                         *post istediğinin gerçekleşmesi için html'de method="post" belirtmeliyiz. post'un gideceği yeri belirtmek içinde yine aynı yerde action belirtmeliyiz bunuda action="/" şeklinde yapabiliriz
 })
 
+=====================ÖNEMLİ==================
+app.post("/", function(req,res) {
+    const movieName = req.body.movieName
+    const url = "https://www.omdbapi.com/?apikey=86f9dde7&t="+movieName;
+      https.get(url, function(response) {
+        console.log(response.statusCode);                                      : Eğer işlemi app.post'ta değilde app.get'te yapıyorsak normal bir apı alma işlemi gibi yapmalıyız ama app.post'ta yapıyorsak
+        let stockData = '';  // boş bir string yarattık                          önce boş bir string oluşturup gelen dataları onun içine atmalıyız , daha sonra hepsi yüklenince "end" yöntemiyle de yansıtmalıyız 
+        response.on("data", function(data) {
+            stockData += data  // gelen dataları stringe yansıttık
+        })
+        response.on("end", function() {
+            console.log(JSON.parse(stockData))
+        })
+      }) 
+})
+
+
+Promise.all(
+  [Superman, Batman, Thor].map((id) =>
+    fetch(`https://www.omdbapi.com/?apikey=86f9dde7&t=${id}`).then((resp) =>
+      resp.json()
+    )
+  )
+).then((moviesAPI) => {
+  var firstMovie
+  var secondMovie
+  var thirdMovie                                                                : Tek bir API url'sinden birden fazla API url'si almak için promise.all ve .map kullanılabilir. Bu sayede değişken API'lerde birden fazla
+  moviesAPI.forEach((item, index, arr) => {                                       dataya sahip oluruz. Datayı bize array içerisindeki object olarak veriyor.
+    firstMovie = arr[0].Title
+    secondMovie = arr[1].Title
+    thirdMovie = arr[2].Title
+  })
+  console.log(firstMovie, secondMovie, thirdMovie)
+})
+
+
+
 
                                                         HEROKU
 
@@ -1029,3 +1103,81 @@ git clone "url": bu komut sayesinde tırnak işaretlerinini yerine (tırnakları
 git branch "isim" : bu kod mevcut olduğumuz klasörde oluşturduğumuz git versionlardan birine alt dal (yani 2'den 3. version'a geçiş değil de 2.2 version gibi) oluşturmamızı sağlar
 
 git branch  : yazarak hangi dallara sahip olduğunu görüntüleyebilirsin
+
+git checkout "branch'ın ismi" : bu komut sayesinde , daha önceden oluşturduğumuz branch'e geçeriz ve yaptığımız işlemler o branch için geçerli olur (branch'te işlem yaptıktan aynı normal version'larda olduğu gibi terminale "git add ." ve "git commit -m "not"" yazman gerekiyor ki
+branch versionun staging area'dan geçsin)
+
+git merge "branch ismi" : bu komutu master'da yazarak branch'ımızı ana version'la birleştirebiliriz. Bu komutu branch'te yazarsak işe yaramayacaktır.
+
+▓BAŞARISIZ OLDUYSA▓ git push başarısız olduysa ve bize error: failed to push.. diyorsa önce git pull yapmayı deneyelim daha sonra git push yapalım
+
+
+                            EJS(Embedded JavaScript)
+
+
+ejs'i express'le kurmak için önce npm ejs komutuyla ejs paketini indiriyoruz daha sonra express'imizi app.js'e ekliyoruz ve ardından:
+app.set('view engine', 'ejs'); ' le ejs'ide ekliyoruz (app.set'in const app = express()'in altına yazılması gerekiyor)
+
+EJS'in kullanmak için bir klasör oluşturmalıyız ÖR: views klasörü oluşturuyoruz. Bu klasörün içerisinde EJS html'i olacak bunuda list.ejs(list yerine istediğimiz ismi verebiliriz) uzantısıyla yapıyoruz(.ejs zorunlu)
+HTML'limizi .ejs içerisine yazıyoruz. Daha sonra html'de mesela haftanın günleri yazsın istiyoruz:
+ <h1> This is <%= kindOfDay %> </h1> 'le değişkenimizi html içerisine ekliyoruz. 
+ 
+ daha sonra app.js'in app.get kısmında: 
+ let today = new Date();
+ let currentDay = today.getDay();             app.js kısmında new Date sayesinde günleri alıyoruz. eğer gün pazartesiyse day değişkeninin pazartesi eğer
+ let day = "";                                salıysa day değişkenin salı olmasını söylüyoruz. Yani internet sitemizi pazartesi açarsak orada pazartesi
+ if(currentDay === 0) {                     : salı açarsak orada salı yazakacak. Bunu oluşturduktan sonra html'e bağlamak içinse res.render'a
+     day = "Monday"                           views klasöründe list adında bir dosya aramasını söylüyor ve bu dosyanın içerisindeki kindOfDay'in , day 
+ } else if (currentDay === 1){                variable'ına eşit olduğunu söylüyoruz 
+     day = "Tuesday"                          (genel kullanımda , kindOfDay ismiyle isimlendirmek yerine day ismiyle isimlendirip hem js'teki hem de
+ }                                             html'deki isimleri aynı tutmak daha doğru ama başlangıç olarak kafamızın karışmaması için farklı yapıyoruz) 
+ res.render("list", {kindOfDay:day})
+________________________________
+ Embedded JavaScript Etiketleri
+
+<%= %> : Html içerisine yazılır , değeri direkt olarak şablona verir
+ÖR:   <h1>It's a <%= kindOfDay %>!</h1>
+
+<% %>  : Html içerisinde Javascript(if-else switch vb.) yazmamızı sağlar(üst satıra açılan alt satırdakini etkilemez, satır bazında her satırdaki js'lere tek tek eklenmelidir)
+ÖR:   <% if(kindOfDay === "Tuesday") { %>
+      <h1 style="color: red">It's a <%= kindOfDay %>!</h1>
+  <%  } else { %>
+      <h1 style="color: purple">It's a <%= kindOfDay %>!</h1>
+  <%  } %>
+
+<%- -%> : Çıktısız değeri şablona verir. footer ve header .ejs'leri oluşturup <html> ve </head>'in hemen altındaki <body>'ye kadar olan kısmı header.ejs'e yapıştırırsak ve 
+<%- include("header") -%>'ı ana .ejs'mize bunu yazarsak oluşturduğumuz header şablonu ana ejs'e yansıyacaktır.(todolist-version1 ' de ve section 22 ders 271'de mevcut)
+________________________________
+
+                                             ÖNEMLİ BİLGİ! 
+scope: scope kavrama anlamındadır. örneğin 
+function a {                 bu kavramda a fonksiyonu x'i kavramız ve konsola yazdırmıştır bu durumda
+             var x = 2;      a fonskiyonu çağrıldığında console.log'da 2 gözükecektir.
+             console.log(x);
+            }
+
+Peki eğer function a'nın içerisindeki log'u dışarıya yazdırsaydık ? Bu sefer console hata verecektir çünkü var x = 2
+function'ın içerisinde oluşturulmuştur ve dışından onu çağıramayız. peki function b {               yapsaydık ?
+                                                                                     console.log(x)
+                                                                                     }
+sonuçta console yine hata verecektir çünkü bir function içerisindeki değişkenleri başka bir function'da çağıramayız.
+Yani a function'nın kavradığı değişkenler ve manipülasyonlar yalnızca a fonksiyonu içerisinde geçerlidir buna da
+Local Variables denir. .js dosyasının içerisinde oluşturulan variables'laraysa function içerisinden de dışarısından
+da erişim sağlanabilir buna da global variables denir. Peki eğer bir if, while, for döngüsü veya function dışında
+bir yerde variable oluştursak ? En nihayetinde onlarda da brackets var.. ama hayır eğer function dışında bir yerde
+variable oluşturuyorsak o variable'a istediğimiz yerden erişebiliriz
+
+                                                ▓▓▓▓▓▓▓▓ BU İKİ BİLGİ ÖNEMLİ ▓▓▓▓▓▓
+
+BİLGİ! express'le bir web site oluşturduğun zaman klasörleri otomatik olarak kendi ekleme(without app.js). Style'ı , html ve öbür dosyaları manuel olarak app.js'ten eklemelisin
+yani eğer html içerisine girip css linkini yazarsan yine de css çalışmayacaktır. app.js'te web sitesinde kullanacağın öbür klasörlerin yerini bildirmeli ve onları çalıştırmasını
+söylemeliyiz. Bu durumda yapılması gereken bir public klasörü oluşturmak, bu klasörürü varsa script'i css'i imagesi faviconu eklemek ve express'e onu statik olarak çalıştırmasını
+söylemek. ÖR: app.js'te app.use(bodyParser.urlencoded)'ın hemen altına  app.use(express.static("public") yazarak express'e static olarak public'i çalıştır dedik (bunun yanı sıra
+list.ejs'e de veya hmtl'de css linki eklemeyi unutma)
+
+
+        KENDİ EXPORT'UMUZU YAPMAK
+date.js adında bir klasör oluşturup içerisinde exports.getDate = function( const a = "friday" return a) {} 'a sahip bir fonksiyon oluşturalım
+oluşturduğumuz bu function'ın sonucunu(return'u) ana .js'imiz(app.js)'de kullanmak için ana .js'imizde const x = require(__dirname + "/date.js") 
+adlı bir sabit oluşturalım. Bu sayede expor ettiğimiz js'e ana js'de import etmiş olduk. şimdi x(x yerine istediğimiz değişken ismini verebiliriz)'i
+kullanmak istediğimiz yerde bir değişken oluşturup ona eşitleyeceğiz. ÖR: let day = x.getDate() function'ı çağırırken ()'lerle birlikte çağırmalıyız 

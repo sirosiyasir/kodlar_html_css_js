@@ -18,6 +18,9 @@ cryptii.com : hex 16'lık kodları ve bytes'ları yazıya dönüştürür
 mailchimp.com : email listesi oluşturmak için(section 20 ders 249)
 TMDB: film ve tv API'leri içeriyor
 OMDb: film API'si içeriyor
+Lorem Picsum : rastgele görsel linki veriyor
+React Developer Tools : React'teki components'ları , props'ları hooks'ları gösterir(Google eklentisi)
+
 
 EK BİLGİ!
 Singleton(tek nesne) tasarım kalıbı, bir sınıfın tek bir örneğini almak için kullanılır.
@@ -29,7 +32,10 @@ garanti altına alınacaktır. Singleton nesneler ilk çağırıldıklarında bi
 yazılan kodlar onun üzerine oturur.
 bilgi! : öğelerin class'ına fa-4x yazarsak o öğe 4x büyür
 
-
+!KLAVYE BİLGİLERİ!
+ctrl+a : dosyadaki bütün her şeyi seçer
+ctrl+d : dosyada seçtiğiniz yazıdan başka varsa onlarıda seçer
+Alt : Alt tuşuna basılı tutarak tıkladığımız her yerde bir pointer daha çıkar
 
                                        HTML
 
@@ -72,6 +78,8 @@ ismiyle etiketimizin içerisinde bulunan öğelerle ilgili istediğimiz etkeni u
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
+contenteditable="true" : eklenilen html öğesini yeniden düzenlenebilir(text) haline getirir
+
 
 
                                         CSS Media Query
@@ -236,7 +244,7 @@ specify families'deki istediğin fontu koplaya ve yapıştır. (Örneğin montse
 {clear: left;} : anti-float gibi düşünülebilir. Etrafını sarmasını istemediğimiz metin(vb.) için kullanabiliriz.
 {text-shadow: 1px 1px 2px black;} : Kendin buldum. Yazıya Gölge ekliyor
 {rotate: 15deg} : fotoğrafı 15 derece sağa çevirir
-
+{list-style-top: none} : ul-li öğelerinde başta bulunan yuvarlağı kaybeder
 
 
 
@@ -268,13 +276,11 @@ carousel : web sitesinde kaydırmalı bir alan oluşturmayı sağlar. (ders 7 b�
                                 JAVASCRIPT
 
 
-
 window.addEventListener("resize", function (event) {
   // kod buraya :  if(window.innerWidth >= 575){                       şekilde gelecek  : vanilla JS'le ekran boyutuna göre yeniden düzenleme
                                                 //gerçekleşecek eylem
                                                 }
   },true)
-
 
 
 function scrollAnimation() {
@@ -284,7 +290,6 @@ function scrollAnimation() {
   setTimeout(scrollAnimation, 10)
 }
 scrollAnimation()
-
 
 input.addEventListener("keydown", (event)=> {
   if(event.key === "Enter"){                         : enter'a bastığımız zaman sendButton id'sine sahip öğenin tıklanması komutunu veriyoruz
@@ -296,7 +301,7 @@ let i = 0
 let txt = "Yasir Çeşmeci"
 let speed = 50
 function typeWriter() {
-  if (i < txt.length) {                                            : onclick eventiyle birlikte kullanılınca animasyonlu text oluşturmamızı sağlıyor
+  if (i < txt.length) {                                            : onclick eventiyle birlikte kullanılınca animasyonlu text oluşturmamızı sağlıyor(todoapp denememde mevcut)
     document.getElementById("myName").innerHTML += txt.charAt(i)
     i++
     setTimeout(typeWriter, speed)
@@ -750,10 +755,26 @@ rates.style.backgroundColor = "hsl(25, 97%, 53%)";                   : Seçtiği
 })
 })
 
+======= iç içe öğelerde js'de mouse hover olayı ========
+for (let i = 0; i < image.length; i++) {
+  image[i].addEventListener("mouseover", () => {
+    document.querySelectorAll("#play")[i].style.display = "block"
+  })
+}
+
+for (let i = 0; i < image.length; i++) {
+  image[i].addEventListener("mouseleave", () => {
+    document.querySelectorAll("#play")[i].style.display = "none"
+  })
+}
+
 ===.map yöntemi===
 [9, 16, 25].map((id) =>      : .map yönetimiyle birden fazla öğe için aynı işlemi gerçekleştirebiliyoruz(movies projesinde örneği var)
 Math.sqrt(id) 
 )
+
+.substring(0,100)  : slice gibi düşünülebilir. "."dan önce gelen variable'ın içerisindeki dizeden yalnızca ilk 100 kelimeyi alır
+
 
 
                                                                 jQuery
@@ -858,13 +879,17 @@ function animatePress(currentColour){
 
 
 
+
+
                                                            HYPER TERMINAL
+
 
 
 
                                                                   !!BİLGİ!! 
                                    nodemon 'u çalıştırmak için "nodemon app.js" yapabiliriz. Eğer çalışmıyorsa veya komut algılanamadı 
                                              diyorsa çözüm nodemon'u yüklemektir. npx nodemon app yaparak çözülebilir
+
 
 
 code . : komutuyla vs code'da içerisinde (cd yapıp gittiğin klasör) bulunduğun klasörü açabilirsin
@@ -929,6 +954,8 @@ npm install x : x yerine npm paketinin ismini yazacağız ve yazdığımız pake
 
 
 
+
+
                                                                             API
 
                                                                                   !!BİLGİ!! 
@@ -958,7 +985,7 @@ const https = require("https");
 const app = express();
 
 app.get("/", function(req, res) {
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=(APIkey-buraya-gelecek)"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=İstanbul&appid=f6fd89e0f96fa7d93f588f981763ab86"    : openweather apisini çağırdık ve sonucu console.log'a yazdırdık. sayfayı yenileyip hyper'a göz attığımızda bize apı'nın bütün sonuçlarını vermeli
   https.get(url, function(response) {
     console.log(response)
   })
@@ -1011,6 +1038,7 @@ app.use(bodyParser.urlencoded({ extended: true }))    : || aktif ettik
 app.post("/", function(req, res) {                    : req.body.cityName yaparak index.html içerisindeki name'i seçtik.
  console.log(req.body.cityName)                         *post istediğinin gerçekleşmesi için html'de method="post" belirtmeliyiz. post'un gideceği yeri belirtmek içinde yine aynı yerde action belirtmeliyiz bunuda action="/" şeklinde yapabiliriz
 })
+
 
 =====================ÖNEMLİ==================
 app.post("/", function(req,res) {
@@ -1067,6 +1095,10 @@ Eğer projende değişiklik, ekleme yapmak istersen hyper'da " git add . " enter
 
 
 
+
+
+
+
                                                       - Git ve Version Control Systems -
 
 git init: bu komutla içerisinde bulunduğumuz folder'a git oluşturabiliriz
@@ -1081,6 +1113,8 @@ git commit -m "make <h1> title" : İlk commit'i yazmak için bulunduğun klasör
 
 git log : bu komutla , bulunduğun version'la ilgili tarih , bu versionu yapan kişi bir hash komutu ve en altında da yazdığımız yorumu görüntüleriz(-m "") 
 
+=▓▓ git log yaptığımızda kırmızıyla (origin/master) yazan parantez Github'ımızdaki son sürümümüzdür. Yeşille (head -> master) yazan parantezimiz local repomuzdaki son sürümdür ▓▓=
+
 git diff "dosya ismi" : bu komutla "" içerisideki dosyanın git commit'le yayınladıktan sonra üzerinde yapılan değişiklikleri görebiliyoruz
 
 git checkout "dosya'nın ismi" : bu komutla , git commit'le yayınlayıpta bir süre sonra üzerinde değişiklik yaptığımız dosyaları git commit'le yayınlanmış haline döndürebiliriz
@@ -1088,7 +1122,7 @@ git checkout "dosya'nın ismi" : bu komutla , git commit'le yayınlayıpta bir s
 git remote add origin https://github.com/sirosiyasir/dosyaismi   : bu komutun git remote add kısmı "origin adındaki https linkine girmemizi sağlar" . Origin geleneksel olarak kullanılan uzak repolara girerken oluşturduğumuz isimdir 
  https linki de oluşturduğumuz github reposundan alıyoruz. (section 21 ders 255 dakika 5.20)
 
-git push -u origin master  : bu komut sayesinde daha öncden git remote add origin https'le seçtiğimiz repo'ya kendi yerel dosyalarımızı yükleyebiliyoruz
+git push -u origin master  : bu komut sayesinde daha önceden "git remote add origin https'le" seçtiğimiz repo'ya kendi yerel dosyalarımızı yükleyebiliyoruz
 
 !!BİLGİ!! working directory(bilgisayarımızdaki çalışmamız) > staging area(git'e çalışmamızı izlettiğimiz kısım) > local repository(git version'larını kaydettiğimiz kısım) > remote repository
 
@@ -1112,7 +1146,8 @@ git merge "branch ismi" : bu komutu master'da yazarak branch'ımızı ana versio
 ▓BAŞARISIZ OLDUYSA▓ git push başarısız olduysa ve bize error: failed to push.. diyorsa önce git pull yapmayı deneyelim daha sonra git push yapalım
 
 
-                            EJS(Embedded JavaScript)
+
+                                                  EJS(Embedded JavaScript)
 
 
 ejs'i express'le kurmak için önce npm ejs komutuyla ejs paketini indiriyoruz daha sonra express'imizi app.js'e ekliyoruz ve ardından:
@@ -1181,3 +1216,315 @@ date.js adında bir klasör oluşturup içerisinde exports.getDate = function( c
 oluşturduğumuz bu function'ın sonucunu(return'u) ana .js'imiz(app.js)'de kullanmak için ana .js'imizde const x = require(__dirname + "/date.js") 
 adlı bir sabit oluşturalım. Bu sayede expor ettiğimiz js'e ana js'de import etmiş olduk. şimdi x(x yerine istediğimiz değişken ismini verebiliriz)'i
 kullanmak istediğimiz yerde bir değişken oluşturup ona eşitleyeceğiz. ÖR: let day = x.getDate() function'ı çağırırken ()'lerle birlikte çağırmalıyız 
+
+
+    PARAMETRELERİ YAKALAMAK İÇİN
+app.get("/:topic", function(req,res) {
+  console.log(req.params.topic);        :  "/"tan sonra gelecek herhangi bir parametreyi req.params sayesinde yakalarız
+})                                          yani ÖR: localhost:3000/yeniblog 'taki yeniblog bir parametredir.
+
+
+                                                        DATABASE
+
+
+SQL: Structured Query Language
+NoSQL: || || || 
+
+SQL ve NoSQL arasındaki farklar : SQL içerisindeki bilgileri (isim , soyisim, adres) bir tablo şeklinde oluşturur ve her yeni biri ekleneceği zaman bu tablo içerisinde yeni bir satır oluşturur.
+Eğer ki oluşturulan satırlardan birine yeni bir içerik ÖR: "e-posta adresi" eklemek istesek, SQL bize bu esnekliği düzgün bir şekilde veremeyecektir. Çünkü öbür kullanıcılara e-posta adresi için
+birer sütun oluşturacak ve onların e-postası olmadığı için "null" yanıtını döndürecektir. NoSQL'se bize bunu js object şeklinde verecek ve hangisine hangi içeriği eklemek istediğimiz konusunda bize
+esneklik sağlayacaktır. İkisininde kendine göre avantajı ve dezavantajı bulunmaktadır. Seçim yapmak için nerede kullanacağımızı ve ne için kullanacağımıız iyi bilmeliyiz.
+
+                      
+                           
+                              SQL
+Create
+Read                    : Baş harflerinin birleşmesiyle oluşan CRUD , bir SQL database'i kurarken oluşturulması gerekenlerdir
+Update
+Destroy
+
+
+
+
+
+
+                                                REACT
+
+
+React'ı kurmak için
+hyperda ; oluşturduğumuz klasör'e " npx create-react-app klasörismi " komutuyla react'ı indirebiliriz.İndirdikten sonra vs code'da açıp terminale npm start yazarsak bize , tarayıcımızda klasörümüz açılacaktır
+___________________________ React'ı dahil etmek___________________________________________
+React'ı kurduktan sonra ana .js'imize dahil etmek için:
+import React from "react" (import yapmak aslında: var React = require("react") yapmakla eşdeğerdir ama import ES6 kurallarına uygundur)
+import ReactDOM from "react-dom" (react'ı indirdiğimiz zaman otomatik olarak .js'te import ReactDOM from "react-dom/client" olarak iner. O şekilde de kullanılabilir)
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(
+  <React.StrictMode>
+    <App />                                : önerilen render kullanımı budur. Diğer .render yönetimi de çalışır ve kullanılabilir. burada <App /> bütün componentları içeren App.js'dir. index.js' import edilerek kullanılır
+  </React.StrictMode>
+)
+------------------------------------------------------------------------------------------
+
+!ÖNEMLİ BİLGİ!
+Javascript içerisinde yazdığımız html aslında normal html değil JSX(JavaScript XML)'dir. Bu yüzden html'le arasında farklar bulunmaktadır
+
+!BİLGİ!
+Javascript'in içerisindeki HTML'e Javascript variable'ı eklemek istersek onu süslü parantez içerisinde yazmalıyız ÖR: const name = "Yasir" <p>{name}<p> (`<p>${name}<p>` , bu da çalışır)
+
+!ÖNEMLİ BİLGİ!
+React'te html'e class, class="" şeklinde değil className="şeklinde eklenir"
+
+!BİİLGİ!
+style'ı inline style(satır içi) yazmak için style={{color: "red"}} şeklinde yapmamız gerekiyor
+
+____________!ÖNEMLİ BİLGİ!________________
+!css dosyasında değil de inline yazıyorsak!
+const myStyle = {                                 Bu şekilde JS object'i oluşturup style'ımızı onun içerisine ekleriz. Object içerisinde style yazarken kebap tarzı yazım(font-size) deve tarzı yazıma(fontSize)
+color: "red",                                   : dönüşür. Daha sonra variable ismini <h1 style={myStyle}> şeklinde etiketimize ekleriz. Eğer object içerisinde değiştirmek istediğimiz bir style var ÖR:
+fontSize: "20px",                                 let date = new Date(), date.getHours() , if(hours < 12){myStyle.color = "green"} , şeklinde değiştirebiliriz.(scope'a (kapsam) dikkat et)
+border: "1px solid black"
+}
+
+_____________________Components(Bileşen)_____________
+React Components : Bileşenler büyük bir dosyayı veya karmaşık bir web yapısını daha küçük bileşenlere bölmemizi sağlar. React compenents'lara pascal harfleriyle isim vermek bir gelenektir o yüzden <h1> etiketine
+components ismi vereceksen Heading , yani ilk harfinin büyük olmasına dikkat etmelisin. oluşturulan components .render'a şu şekilde eklenir: function Heading(){return <h1>Hello World</h1>}
+                                                                                                                                             ReactDOM.render(
+                                                                                                                                             <div>
+                                                                                                                                             <Heading />
+                                                                                                                                             </div>,document.getElementById("root"))                                 
+    ▓ÖNEMLİ▓
+Components'ları .js içerisinde değil de .jsx uzantısıyla yeni bir dosya içerisinde kullanmalıyız. Yukarıdaki function için bir .jsx oluşturalım:
+Heading.jsx'dosyamızı oluşturduk daha sonra:
+import React from "react"
+function Heading(){                     : React'ı import ettik ve oluşturduğumuz .js'i export ederek diğer .jsx'lerde ve .js'imizde kullanabileceğimiz hale getirdik. Şimdi .js'e giderek export ettiğimiz .jsx'i
+return <h1>Hello World</h1>                .js'e import edelim: import Heading from "./Heading" , dosya ismini ve konumu tırnak içerisine yazarak istediğimiz sayfaya .jsx'i import edebiliriz
+}
+export default Heading
+
+
+!BİLGİ!
+React'ı kurduğumuz zaman otomatik olarak public ve src'le birlikte geleceği için bizim oluşturmamız gereken klasörler genellikle component'lar olacaktır. Büyük projelerde 15-20'yi aşkın .jsx olacağı için bunları belirli bir klasör
+altında ÖR: components klasörü altında tutarsak daha düzenli bir yapı oluşturmuş oluruz
+
+   ▓BİRDEN FAZLA FUNCTİON'I EXPORT VE İMPORT ETMEK▓
+
+import React from "react";
+function List() {
+  return (
+    <ul>
+      <li>Sunny Side Up</li>
+    </ul>                             : .jsx veya .js dosyamıza react'ı import ettikten sonra oluşturduğumuz function'ı export etmek için: export default List 'i kullandık. Default olarak export ettiğimiz function'ın yanı sıra
+  );                                    bir diğer function'ı da export etmek istersek o halde hemen altına: export{functionismi} şeklinde yapabiliriz. Yanda örneği mevcut olan dosyada yaptığımız gibi. Export ettikten sonra
+}                                       import etmek için kullanacağımız dosyada önce default'ı klasik yöntemle import edip daha sonra default'un yanına virgül ekleyerek süslü parantez içerisinde öbür function'u dahil ediyoruz:
+function Try(){                         İmport ÖR: import List, {Try} from "./List.jsx" , Try function'unu bu şekilde ekledikten sonra kullanmak istersek süslü parantez içerisinde function şeklinde(Try()) çağırmalıyız.  
+  return 3                              İmport edilen Try'ı kullanma ÖR: <ul><li>{Try()}</li></ul> 
+}
+
+export default List;
+export {Try}
+=======================================================================================================================
+!ÖNEMLİ BİLGİ!
+import * as "dosyaismi" from "./dosyaismi" şeklinde de birden fazla function içeren dosyaları import edebiliriz ÖR:
+import * as Calculator from "./calculator"
+ReactDOM.render(<ul>
+<li>{Calculator.functionİsmi()}</li>
+<li>{Calculator.ikinciFunctionİsmi()}</li>       : şeklinde kullanımı vardır
+</ul>,document.getElementById("root"))
+
+!BİLGİ!
+Eğer 3'ten fazla function varsa en iyi yöntem default kullanmadan direkt: export {x,y,z,v} , şeklinde export edip: import {x,y,z,v} from "./dosyaismi" şeklinde import etmektir
+
+
+     ▓ Div Yerine Function İsmi Kullanmak ▓
+
+function Header(){
+return(
+<header>
+<h1>Hello World</h1>      :    Oluşturduğumuz function'lar içerisinde JSX 'in bize tanımladığı özelliklerden biri olarak div yerine istediğimiz ismi kullanabiliriz. Bu da css'de özellikler tanımlarken class eklemeden direkt
+</header>                      header{font-size: 2rem} yapabilmemizi sağlar.(isimlendirirken function ismi kullanmak geleneksel)
+)
+}
+
+     ▓▓▓▓ REACT PROPS ▓▓▓▓
+React propslar, özünde bir html etiketine attributes(class , value, placeholder birer attributes'tir) eklemek gibi gözükür. Düz html'e kendi attributes'imizi ÖR: h1'e " telno = 05309233030 " şeklinde ekleyemeyiz ama React bize kendi attributes'imizi ekleme olanağı sağlar. Bunun adına da props deriz.
+React yazarken <Card /> oluşturduğumuz card components'ına, className="header" şeklinde class ekleyemeyiz. Ama oluşturduğumuz Card.jsx'teki Card function'ındaki div veya h1'e ekleyebiliriz. Bunun nedeni <Card /> ' a className="header" eklediğimiz zaman bunu bizim kendi oluşturduğumuz bir attributes
+olarak algılar. Yani bunun bir props olduğunu düşünür. Aşağıdaki props örneğinde görüldüğü gibi App.js(props) function'undaki <Card /> components'ına verilen attributes'ler Card.jsx'e props sayesinde iletiliyor ve Card.jsx'teki html'ler bu sayede dolduruluyor. App.js'de birden fazla <Card /> components'ı
+oluşturularak farklı attributes'lerle doldurulabilir ve bu sayede ortaya tek bir componenst'la oluşturulmuş farklı isimde, farklı resimde, farklı tel no'da bir görüntü ortaya çıkar 
+
+    App.js                                          Card.jsx
+function App(props) {                       function Card(props) {
+ return (                                     return (
+ <div>                                         <card>
+  <Card                                          <h1>My Contacts</h1>
+   name="Beyonce"                                 <h2>{props.name}</h2>
+   img="https://urlismi.jpg"                      <img src={props.img} alt="avatar_img" />
+   tel="+123 456 789"                             <p>{props.tel}</p>
+   email="b@beyonce.com"                          <p>{props.email}</p>
+   />                                             </card>
+  </div>                                        )
+ )                                            }
+}
+
+
+      ▓▓▓ addEventListener'ı React'te Kullanamamak ▓▓▓
+React'te addEventListener kullanımı geçerli değil. Onun yerine html etiketi içerisine event'ini yazmamız gerekiyor ÖR: addEventListener("click", ()=>{}) yerine <button onClick={functionismi}> şeklinde yapmalıyız. Bir function oluşturup onu variable'a eşitleyerek function ismi yerine variable ismi yazabiliriz
+
+
+      ▓▓▓▓ REACT'E VANİLLA JS EKLEMEK ▓▓▓▓
+Oluşturduğumuz script.js'e vanilla(react'te geçerli olacak şekilde yazdığımız) js'imizi ekliyoruz. function'ları birer variable'a(ÖR: const infoClick = function () {}) sabitliyoruz. Daha sonra hepsini export ediyoruz ve event'lerimize yerleştiriyoruz
+Eğer birden fazla function ismi veya variable ismi eklenecekse: onClick={() => {
+                                                                          infoClick()
+                                                                          removeBattleClass()
+                                                                        }}
+
+
+
+      ▓▓▓▓ COMPONENTS'TA .map() KULLANIMI ▓▓▓▓
+function createCard(contact) {          
+  return (
+    <Card                          !!!.map() KULLANIRKEN DİİKKAT EDİLMESİ GEREKEN!! : .map() yönetimi kullanılacaksa her bir object'in benzersiz bir kimliği(id) olmalıdır ve bu kimlik attributes'e "key" ismiyle yazılmalıdır. ÖR: key={id} (key yazmak zorunlu bir react kuralı) !!
+      key={personality.id}                ||  YUKARIDAKİ .map() KULLANILIRKENİ OKU!!!  ||
+      name={personality.name}            : createCard function'ında tek bir <Card /> oluşturduk ve attributes'lerimizi içerisine yerleştirdik. Bu <Card /> component'ını function App() içerisinde .map yöntemiyle kullanırsak, {personality.name}'i aldığımız javascript object'inde kaç tane name varsa .map bize o kadar
+      imgId={personality.imgId}            <Card /> oluşturur ve içerisine name attributes'ini yerleştirir. ÖR:  {Personality.map(createCard)} , App() function'ında bu yönetimi kullanarak, Personality(Personality: App.js'e import ettiğimiz, js object'lerin bulunduğu dosyadır)'ta bulunan bütün object'leri createCard() function'undaki
+      imgSrc={personality.imgSrc}          <Card /> yerleştirir ama her bir object için yeni bir <Card /> oluşturarak. KISA ÖZET: Yani .map yönetimi Personality içerisindeki her bir object için bir creacteCard function'ı oluşturur. (funny cards adlı project'te benzer bir örneği mevcut)
+    />
+  )
+}
+
+      ▓▓▓▓ .map , .filter , .reduce , .find , .findIndex ▓▓▓▓
+https://codesandbox.io/s/map-filter-reduce-forked-iffj8k?file=/src/index.js
+
+
+!!BİLGİ!! JSX içerisine doğrudan statement(if else, switch..) yazamayız. Dolaylı olarak(function içerinde) yazabiliriz veya Ternary Operator kullanarak yazabiliriz
+Ternary Operator
+CONDITION ? DO IF TRUE : DO IF FALSE : koşul doğruysa "?" işaratinden hemen sonraki gerçekleşsin yanlışsa ":"'dan sonraki 
+ÖR: var logIn = true  
+return(
+<div>
+logIn === true ? <h1>Hello</h1> : <h1>Failed</h1>     : bu durumda eğer logIn doğruysa Hello yazan "h1"'i return etmesi eğer logın false'sa Failed yazan "h1" return etmesini söyledik
+<div/>
+)
+
+===YUKARIDAKİ ÖRNEK KISA YAZIM===
+Yukarıdaki örnekte logIn bir boolen'a eşitlendiği için şu şekilde de yazabiliriz logIn ? <h1>Hello</h1> : <h1>Failed</h1> 
+
+
+***&& in JS***
+ expression && expression
+        var x = 5;
+     x > 3 && x < 7
+***! in JS***
+ünlem işareti başına koyduğumuz variable'ı eğer bu variable yanlışsa , eşit değilse anlamına getirir(olumsuz)
+
+
+***&& in JS*** UYGULAMALI ÖRNEK ***! in JS***
+https://codesandbox.io/s/conditional-rendering-practice-forked-g5eini?file=/src/components/Form.jsx
+
+
+-----React State-----
+UI = f(state) : kullanıcılara yansıttığımız web sitesinde aktif olarak değişiklik yapmak için stateleri kullanırız. Belirli durumlarda ne olmasını istediğimi söyleriz yani User Interface = function(){}'dır
+ÖR: bir button'a tıklandığı zaman geçerli olacak state'i bir function aracılığıyla (ve tabiki onclick'le) gerçekleştirebiliriz(<button onClick={changeBodyColor}>onClick</button> , changeBodyColor function'u gerçekleştirilir) 
+React'te stateleri işleyen bir render'da çalıştırmak için hook'lara ihtiyacımız vardır(yani function'ı oluşturup render.render() içerisinde çalıştırmak istediğimizde not a function uyarısı alacağız)
+
+-----React Hooks-----
+React'te DOM'un bir kopyasını .render ederiz , yani react'ın kullanışlı olmasının en büyük nedenlerinden biri bir değişiklik yaptığımız zaman bunu DOM'un tamamını yeniden render ederek değil de yalnızca değiştirdiğimiz kısmı
+render etmesidir. Hooks bu konuda büyük önem taşır çünkü değişikliği useState hook'unu kullanarak yapacağız.
+
+useState: import {useState} from "react"  'la import ettikten sonra const [x, y] = useState(z) şeklinde kullanabiliriz. Burada x değerimizdir , y'se function'dır (bu function direkt olarak değere etki eder) , z'se ilk değerimizdir
+ÖR: https://codesandbox.io/s/usestate-hook-forked-xgnmn6?file=/src/components/App.jsx
+
+********Destructiring Object********
+https://codesandbox.io/s/es6-destructuring-forked-yiy8b8?file=/src/index.js
+
+=========▓▓▓===== React'te API kullanmak ====▓▓▓=======
+fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}`
+    )
+      .then((resp) => resp.json())  // json.parse formatına dönüştür
+      .then((api) => {              // .then sayesinde "(api)" ismini vererek , apiden almak istediğin değerleri api. yaparak kolayca alabiliriz
+        const temp = api.main.temp
+        console.log(temp)
+      })
+
+Eğer kullanacağımız API'yı default olarak çağırıyorsak(yani bir event kullanmadan)
+useEffect(() => {
+    // useEffect kullanılmadığı zaman apiye dakikada binlerce istek gönderiyor çünkü isteği herhangi bir event'e bağlamadık
+    // bu yüzden de useEffect kullanmamız gerekti. (Mesela Api.jsx'te event'e bağladığımız için bu useEffect kullanmadan da isteği yakaladık)
+    fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=Ankara&appid=${apikey}&units=${unit}`
+    )
+      .then((response) => response.json())
+      .then()
+  }, [])
+-----------------------------------------------------------------
+
+=========▓▓▓===== React'te event kullanmak ve style düzenlemek ====▓▓▓=======
+https://codesandbox.io/s/event-handling-in-react-forked-7dk7u7?file=/src/components/App.jsx
+
+ÖR: oluşturduğumuz state'i mouseenter ve mouseleave olaylarına göre set ediyor , sonra button elementindeki style'a işliyoruz
+const [style, setStyle] = useState("white");
+
+  function mouseEnter() {
+    setStyle("black")
+  }
+
+  function mouseLeave(){
+    setStyle("white")
+  }
+<button onMouseOver={mouseEnter} onMouseLeave={mouseLeave} style={{backgroundColor: style}}>
+
+
+/* Ufak Bir Form Örneği(kontrollü giriş) */
+https://codesandbox.io/s/react-forms-forked-75z5oy?file=/src/components/App.jsx
+
+▓▓▓▓▓                                                       ▓▓▓▓    
+*********** BİRDEN FAZLA STATE OLUŞTURMAK YERİNE ***************
+const [apıInfo, setApıInfo] = useState({
+    image: "",
+    description: "",
+    feelsLike: "",                       : tek bir state oluşturarak bu state'in değerini bir object yapıyoruz ve object içerisinde istediğimiz kadar değer oluşturabiliyoruz.(React_weather_app projesinde örneği mevcut)
+    humidity: "",
+    temp: "",
+    city: "",
+  })
+
+===========Spread Operator(üç nokta)==============
+
+const citrus = ["Lime", "Lemon", "Orange"]                   : üç nokta koyup yanına yazdığımız diziyi içerisinde bulunduğu diziye ekliyor. Bu sayede tekrar tekrar push işlemi yapmaktan bizi kurtarıyor
+const fruit= ["Apple", "Banana", "Coconut", ...citrus]         aynı işlemi aşağıdaki örneklerde olduğu gibi ,object'lerde de yapabiliyoruz            
+
+const fullName = {
+fName: "James",
+lName: "Bond"
+}
+
+const user = {
+...fullName,                   <=
+id: 1,
+userName:jamesbond007
+}
+ 
+                                                    ||"ÖNEMLİ"||
+▓▓-▓▓-▓▓REACT'TE BİR COMPONENT'TA BULUNAN STATE'İN DEĞERİNİ VEYA FUNCTİON'I , BAŞKA BİR COMPONENT'A AKTARTMA▓▓-▓▓-▓▓
+
+    CreateArea.jsx                                          App.jsx
+function CreateArea(props) {                     function App() {
+ const [note, setNote] = useState({                function addNote(note){
+     title: "",                                       console.log(note);
+     content: ""                                     }
+   })                                               return (
+   function handleSubmit(e){                        <div>
+   e.preventDefault()                                <CreateArea onAdd={addNote} />
+   props.onAdd(note)                                </div>
+   }                                                 );
+                                                    }
+}                                                  
+
+
+export default CreateArea;                         export default App;
+
+App.jsx'te oluşturulmuş olan <CreateArea/>'ya, App() functionu içerisinde oluşturduğumuz addNote() function'ınını değer olarak ekliyoruz. Daha sonra
+CreateArea() içerisinde oluşturduğumuz handleSubmit() function'ınına (handleSubmit function'ı bir form doldurulduktan sonra gönderildiğinde gerçekleşen function uzamasın diye bu detayları eklemedim)
+props aracılığıyla ekliyoruz. Ekledikten sonraysa artık props.onAdd(note) yaparak App.jsx'e bu state'i göndermiş oluyoruz.
+Detay için: https://codesandbox.io/s/keeper-part-3-starting-forked-fgryzf?file=/src/components/App.jsx:400-419
+_____________________________________________________________________________________________

@@ -20,6 +20,8 @@ TMDB: film ve tv API'leri içeriyor
 OMDb: film API'si içeriyor
 Lorem Picsum : rastgele görsel linki veriyor
 React Developer Tools : React'teki components'ları , props'ları hooks'ları gösterir(Google eklentisi)
+vercel.com : tıpkı netlify.app gibi web sitemizi yayınlayabileceğimiz bir platform
+react-toastify : uyarı, onay, hata vb gibi kutucuklar oluşturan güzel bir npm paketi. Github'ta reposu var detaylı anlatılıyor
 
 
 EK BİLGİ!
@@ -36,6 +38,8 @@ bilgi! : öğelerin class'ına fa-4x yazarsak o öğe 4x büyür
 ctrl+a : dosyadaki bütün her şeyi seçer
 ctrl+d : dosyada seçtiğiniz yazıdan başka varsa onlarıda seçer
 Alt : Alt tuşuna basılı tutarak tıkladığımız her yerde bir pointer daha çıkar
+Alt : Alt tuşuna, bir yazıyı(div'i vb) seçtikten sonra basılı tutarsak ve aynı anda ok tuşlarıyla aşağı veya yukarı yaparsak seçili öğeyi alt veya üst satıra taşır
+
 
                                        HTML
 
@@ -79,6 +83,12 @@ ismiyle etiketimizin içerisinde bulunan öğelerle ilgili istediğimiz etkeni u
   allowfullscreen
 ></iframe>
 contenteditable="true" : eklenilen html öğesini yeniden düzenlenebilir(text) haline getirir
+<a href="www.twitter.com" target="_blank" rel="noreferrer">Click</a>  : rel="noreferrer" , target="_blank" yaptığımız zaman yönlendirdiğimiz sitenin analizlerinde o bağlantıya kim tarafından yönlendirildiğini anlamasına engeller
+<details>
+  <summary>Epcot Center</summary>
+  <p>International pavilions, award-winning fireworks and seasonal special events.</p>  : bu şekilde (details'e open eklediğimiz için otomatik açık olarak geliyor) önce başlık daha sonra açıklama şeklinde yazı oluşturabiliriz
+</details>
+&nbsp; : kullanıldığı zaman bir boşluk yaratır(tavsiye edilmiyor)
 
 
 
@@ -245,6 +255,13 @@ specify families'deki istediğin fontu koplaya ve yapıştır. (Örneğin montse
 {text-shadow: 1px 1px 2px black;} : Kendin buldum. Yazıya Gölge ekliyor
 {rotate: 15deg} : fotoğrafı 15 derece sağa çevirir
 {list-style-top: none} : ul-li öğelerinde başta bulunan yuvarlağı kaybeder
+{owerflow:auto} :Ekran boyutu tamsa kaydırma çubuğu çıkmaz lakin eğer aşağıya (veya yana) doğru daha fazla içerik varsa kaydırma çubuğu çıkar
+{overflow-y:scroll} : ekrandaki içerik ne olursa olsun (tam olmasa dahi) kaydırma çubuğu bulunur(y ekseninde , istersek x ekseninde de aynısını yapabiliriz)
+{position:fixed} : tanımladığımız div'in position'ını ne olursa olsun ekranda gözükecek şekilde ayarlar (bir nevi sabitler)
+
+
+
+
 
 
 
@@ -775,6 +792,26 @@ Math.sqrt(id)
 
 .substring(0,100)  : slice gibi düşünülebilir. "."dan önce gelen variable'ın içerisindeki dizeden yalnızca ilk 100 kelimeyi alır
 
+▓▓▓▓▓ JS OBJELER'DE BİR HARFİN, ÖĞENİN VB OLUP OLMADIĞINI KOŞUL KOŞMAK İÇİN ▓▓▓▓▓▓
+"in" operatörünü kullanıyoruz. 
+ÖR:
+const information = {name:""}
+   if (("name" in information) & ("day" in information)) {
+        setButtonActive(false)
+       } else if (!("name" in information)) {                  : information adlı object'imizin içerisinde "name" varsa setButtonActive(false) olacak yoksa (true) olacak
+        setButtonActive(true)
+       }
+▓▓▓▓▓ JS ARRAY'LERDE BİR HARFİN, ÖĞENİN VB OLUP OLMADIĞINI KOŞUL KOŞMAK İÇİN ▓▓▓▓▓▓
+includes()'i kullanacağız
+ÖR:
+const information = ["name"]
+   if (("name" in information) & ("day" in information)) {
+        setButtonActive(false)
+       } else if (!("name" in information)) {                  : information adlı array'in içerisinde "name" varsa setButtonActive(false) olacak yoksa (true) olacak
+        setButtonActive(true)
+       }
+
+
 
 
                                                                 jQuery
@@ -1144,6 +1181,10 @@ branch versionun staging area'dan geçsin)
 git merge "branch ismi" : bu komutu master'da yazarak branch'ımızı ana version'la birleştirebiliriz. Bu komutu branch'te yazarsak işe yaramayacaktır.
 
 ▓BAŞARISIZ OLDUYSA▓ git push başarısız olduysa ve bize error: failed to push.. diyorsa önce git pull yapmayı deneyelim daha sonra git push yapalım
+▓HYPER'DA VS CODE'U AÇMAK▓ : " code . " komutu yeterlidir
+
+EĞER GİT'TE KULLANDIĞIMIZ URL'Yİ DEĞİŞTİRMEK İSTİYORSAK
+ git remote set-url origin https://github.com/user/repo2.git  , diyoruz ve origin'den sonraki https bölümüne yeni git repomuzun urlsini giriyoruz
 
 
 
@@ -1528,3 +1569,325 @@ CreateArea() içerisinde oluşturduğumuz handleSubmit() function'ınına (handl
 props aracılığıyla ekliyoruz. Ekledikten sonraysa artık props.onAdd(note) yaparak App.jsx'e bu state'i göndermiş oluyoruz.
 Detay için: https://codesandbox.io/s/keeper-part-3-starting-forked-fgryzf?file=/src/components/App.jsx:400-419
 _____________________________________________________________________________________________
+React'te dosya içerisinde kolayca function oluşturmak için > Ctrl + P > ext install dsznajder.es7-react-js-snippets (bunu yaz ve enterla) > Boş bir jsx içerisinde rfce yaz > oluşturduğun jsx'in adında bir function oluşturacak
+
+▓▓▓▓▓ --- REACT'TE SAYFA YÖNLENDİRMESİ(ROOT) --- ▓▓▓▓▓
+ *npm i react-router-dom 'la paketi indiriyoruz*
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import NotFound from "./pages/NotFound"
+
+function App(){
+<Router className="bg-purple-500">
+  <Routes>
+       <Route path="/" element={<Home />} />
+       <Route path="/about" element={<About />} />               : react-router-dom'u kullanarak yollar oluşturuyor ve bu sayede oluşturduğumuz jsx dosyalarına bir "/" yol aktarıyoruz     
+       <Route path="/notfound" element={<NotFound />} />
+       <Route path="/*" element={<NotFound />} />
+   </Routes>
+</Router>
+}
+
+▓▓▓▓▓ REACT'TE .env Kullanmak ▓▓▓▓▓
+ana klasörde .env dosyasu oluşturduktan sonra içerisine x="" şeklinde bilgiler ekleyiyoruz. Daha sonra bu bilgileri klasör içerisinde bulunun bütün dosyalarda {process.env.x} şeklinde çağırabiliyoruz
+
+▓▓▓▓▓ REACT'TE CONTEXT KULLANIMI ▓▓▓▓▓
+import { createContext } from "react"
+const GithubContext = createContext()
+const GITHUB_URL = process.env.REACT_APP_GITHUB_URL
+const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN
+
+export const GithubProvider = ({ children }) => {
+  const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchUsers = async () => {
+    const response = await fetch(`${GITHUB_URL}/users`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    })                                                                  : oluşturduğumuz bir .js dosyasında, normalde başka dosyanın içinde kullandığımız function'ları ve state'leri ekliyoruz. Daha sonra return kısmında .Provider'le burada değerleri döndürüyoru (value kısmı önemli!)
+    const data = await response.json()                                    normalde kullandığımız dosyalardan bu functionları ve stateleri kaldırıp o sayfaya önce useContext'i ve oluşturduğumuz .js'i import ediyoruz. Daha sonra o sayfa içerisinde const {user, loading, fetchUsers} = useContext(GithubContext)'i ekliyoruz
+    setUsers(data)                                                        (bu eklediklerimiz bu sayfada zaten daha önce kullandığımız state'ler ve function'lar). Bunlar onların yerini alıyor ve bu sayede de kod daha temiz daha okunabilir bir hale geliyor (githubfinder projesinde bir örneği var)
+    setLoading(false)
+  }
+
+  return (
+    <GithubContext.Provider value={{ users, loading, fetchUsers }}>
+      {children}
+    </GithubContext.Provider>
+  )
+}
+
+▓▓▓▓▓ REACT'TE CONTEXT KULLANIMI(2) ▓▓▓▓▓
+context.js oluşturduktan sonra
+import {createContext} from "react"
+const MainContext = createContext()
+export {MainContext}                'le context'i oluşturabiliriz. Daha sonra app.js'e MainContext'i import ediyoruz. Import ettikten sonra app() function'ı içerisindeki bütün element'leri(</>) <MainContext.Provider value={}></MainContext.Provider> 'ye sarıyoruz. value{}'nin içerisine de öbür .jsx'lerde kullanmak istediğimiz değerleri giriyoruz
+  bu değerleri value içerisine girerken önce bir object oluşturup (const data = {userId,setUserId}) değerleri onun içerisine giriyoruz daha sonra o object'i value'ye ekliyoruz. Context'i .jsx'lerde kullanırken de yine MainContext'i import ediyoruz ve ardında const {} = useContext(MainContext)'i function'a ekliyoruz süslü parantezin içerisine de
+  getirmek istediğimiz değerleri (ÖR: const {setUserId} = useContext(MainContext)) giriyoruz. İster function istersek state diğer .jsx'lerde kullanıyoruz. (funnycards projesinde bir örneği mevcut)
+
+▓▓▓▓▓ REACT'TE REDUCER KULLANIMI ▓▓▓▓▓
+const githubReducer = (state, action) => {
+  switch (action.type) {                  
+    case "GET_USERS":                            
+      return {                                 : reducer.js'te reducer'imizi oluşturuyoruz. Burada switch'i kullanarak duruma göre ne return'lamamız gerektiğini belirtiyoruz. Daha sonra reducer'ı kullanacağımız dosyaya useReducer'ı import ediyoruz. Bu dosyada oluşturduğumuz state'leri iptal edip yerlerine const initialState={users:[] ,loading:false}
+        ...state,                               kullanıyoruz. Daha sonra const [state, dispatch] = useReducer(githubReducer, initialState)'ı ekliyoruz , buradaki state başlangıç değeri dispatch ise state'teki set() gibi. Durumun değişmesini isteğimiz function içerisine gidip dispatch({type: "GET_USERS", payload:data(buradaki daha fetch ettiğimiz url'den gelen API)) 
+        users: action.payload,                  daha sonra reducer.js'de kullanacağımız bilgileri aktarıyoruz.Eğer context dosaysında kullanıyorsak, return ettiğimiz .Provider'daki value'yi de users: state.users ve loading: state.loading olarak ekliyoruz. reducer.js'te case "GET_USERS"i yakaladığı zaman yan taraftaki örnekte'de görüldüğü üzere users'ı action.payload'a
+        loading: false,                         ve loading'i de false'a eşitliyoruz. Yani state'le aynı dosyada set() ederken burada reduce.js'te değişimde ne olacağı belirtiyoruz. switch'teki action.type'ı da zaten useReducer'ı kullandığımız dosyada eklemiştik(githubfinder projesinde bir örneği var) 
+      }
+    default:
+      return state
+  }
+}
+
+export default githubReducer
+
+
+▓ React'te useRef Kullanımı ▓
+const inputRef = useRef()                    : input'a ref'i ekledikten sonra , bir event yardımıyla useRef'i kullanabiliriz. misal onClick'i kullanarak tıklanıldığı zaman inputRef.current diyerek input element'ini seçebiliriz. inputRef.current.value = "Hello" diyerek input'un valuesini değiştirebiliriz. vanilla JS kullanarak , inputRef.current.style.backgroundColor = "red"
+<input type="text" ref={inputRef} />           diyerek style'ını değiştirebiliriz
+
+*fetch sırasında unmounted component uyarısıyla karşılaşılırsa (sıklıkla useEffect içerisinde) useRef'i , useRef(true) olarak ayarlarız ve eğer truey'sa fetch'den  dataları alırız. Data'ları aldıktan sonra da return ()=> {x(false)}'la useRef'i false'a döndürürüz
+
+
+------ Tek Function'la Birden Fazla OnChange Gerçekleştirmek -------
+const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
+
+  const { email, password } = formData
+                                                    
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }))
+  }
+                                          : e-mail input ve password input'umuzu tek bir onChange function'ı ile bu şekilde oluşturabiliriz.
+<input
+            type="email"
+            id="email"
+            value={email}
+            onChange={onChange}
+          />
+
+ <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={onChange}
+          />
+
+--- Toggle Oluşturmak ---
+const [showPassword, setShowPassword] = useState(false)
+<input
+     type={showPassword ? "text" : "password"}
+                            />                                    : showPassword state'ini başlangıçta false olarak ayarlıyoruz. Daha sonra input'ta type'ı eğer showPassword true'ysa passwordu göster(yani type text yap) false'sa password'u gösterme(type'ı password yap diyoruz)
+<img                                                               true ve false şeklinde ayarlanması içinde bir img belirliyoruz ve bu img'e onClick eventi ekleyip , setShowPassword sayesinde img'e tıklandığında password neye ayarlanmışsa tam tersi olmasını söylüyoruz (!prevState)
+   src="images/eye.jpg"
+   onClick={() => setShowPassword((prevState) => !prevState)}
+      />
+
+
+----- Mevcut div'in dışında herhangi bir yere tıklandığı zaman (özellikle açılır kapanır için) işlem gerçekleştirmek
+
+// https://stackoverflow.com/questions/32553158/detect-click-outside-react-component url'sinden alıntıdır. Açılır kapanır bir component yapmak için kullandım
+import { useState, useEffect, useRef } from "react"
+
+export default function useComponentVisible(initialIsVisible) {
+  const [isComponentVisible, setIsComponentVisible] = useState(initialIsVisible)
+  const ref = useRef(null)
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setIsComponentVisible(false)
+    }
+  }                                                                                    :burada contains sayesinde mevcut olmayan div'e tıklandığını anlayacağımız bir function kuruyoruz
+                                                                                        daha sonra bu function'ı kullanacağımız sayfaya import ediyoruz. Import ettikten sonra const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false) 'ı
+  useEffect(() => {                                                                     kullanacağımız function'a ekliyoruz. ve "!" "&&" kullanarak ref'i çalıştırıyoruz.ÖR: <div ref={ref}>{!isComponentVisible && <p onClick={()=>{setIsComponentVisible(true)}}>Hello</p>} {isComponentVisible && <p>Good bye!</p>}</div>
+    document.addEventListener("click", handleClickOutside, true)                        Uygulamalı örneği twitter projemde mevcut
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true)
+    }
+  }, [])
+
+  return { ref, isComponentVisible, setIsComponentVisible }
+}
+
+
+-----
+
+
+
+
+
+                                                              React Toastify
+      npm install --save react-toastify 'la öncelikle react-toastfiy paketini projeye indiriyoruz
+
+import { ToastContainer } from "react-toastify"              indirdikten sonra app.js'e ToastContainer'ı ve css'ini import ediyoruz(en alttaki div'in bir üstüne)
+import "react-toastify/dist/ReactToastify.css"
+
+daha sonra hangi .jsx/.js'te toast'ı kullanacaksak oraya;
+import { toast } from "react-toastify"   import ediyoruz. Eğer bir hata mesajı vermek istiyorsak toast.error("Something wrong about the registration") diyebiliriz.
+Toastify'ın detaylı bilgisi github'ta mevcut link: https://github.com/fkhadra/react-toastify
+
+
+
+
+
+
+                                                              Tailwind CSS
+***KURULUM*** : https://tailwindcss.com/docs/guides/create-react-app
+BİLGİ: Tailwind CSS , css'te bize kolaylık sağlamak için class(Name)'a verdiğimiz (tıpkı bootstrap'teki gibi) isimlerden oluşur
+(EĞER daisyui kullanılacaksa kurulumdan sonra ek olarak > npm i daisyui > tailwind.config.js' gidip plugins'e require("daisyui") ekle. son hali plugins: [require("daisyui")] olacak)
+|| AŞAĞIDAKİ className'lerde daisyui'de de kullanılan isimler mevcuttur ||
+bg-purple-500 : arka plan rengini purple yapar
+text-xl : yazının kalınlığını xl yapar
+navbar: bize bir navbar oluşturur
+mb-12 : yukarıdan ve aşağıdan 12 margin oluşturur
+shadow-lg: gölge oluşturur
+bg-neutral: arka planı neutral yapar 
+text-neutral-content : yazıyı neutral arka plana göre ayarlar
+container: bizim için bir container oluşturur(bootstrap'te olduğu gibi)
+mx-auto: margin sağ-sol auto
+my-auto: margin üst-alt auto
+pr-2 : sağ tarafa 2rem padding ekler
+px-2 : hem sağa hem sola 2rem padding ekler
+inline: öğeyi satır içi yapar
+font-bold: font'u kalın yapar
+align-middle: öğeleri ortalar
+btn : hover effect'i verir (button dışındaki öğelerdede işlevsel (ör:link nav))
+btn-sm: button'ın boyutunu small yapar
+flex-col: flex class'ı verilmiş öğeleri alt alta sıralar
+justify-between: öğelerin arasında eşit boşluk bırakır ve öğeleri birbiri arasında dizer
+footer: footer oluşturacağımız zaman bu sınıfı eklersek footer formatına uygun bir tip oluşturur
+text-primary-content: text rengini beyaz yapar
+footer-center: footer'daki öğeleri ortalar
+font-bold: yazı tipini kalın yapar
+hero: (daisyui) konteyner öğesi oluşturur
+hero-content: hero class'ını tanıdığımız div'in alt div'ine eklediğimizde içeriğini kapsar(ortalar)
+max-w-lg: max-width'i 32rem yapar
+grid: element'e grid oluşturur
+xl:grid-cols-4 : ekran xl boyutta olduğu zaman grid col'ları 4'e böler(bunu lg:grid-cols-3 md:grid-cols-2 şeklinde devam ettirebiliriz)
+gap-8: esnek öğelerin arasındaki boşlukları hizalar
+card : öğeleri card'a benzetir(border radius'lu)
+compact: öğelerin boyutunu küçültür
+w-full : width'i full yapar yanı üzerindeki div'İn tamamını kaplar
+input-lg : input'un büyüklüğünü large yapar
+absolute top-0 right-0 : bir öğeye tanımladığımız zaman o öğeyi hem absolute yapar hem top'ını hem de right'ını sıfır yapar(input'un hemen altına eklenmiş bir button'a eklenirse, button'ı inputun hemen dibine sabitler)
+rounded-l-none: sol köşenin rounded'ını yok sayar
+stat(daisyui): tanımladığımız div'i , içerisine bazı statüler ekleyebileceğimiz bir görüntüye çevirir
+stat-title: tanımladığımız yazıyı hafif soluk  yapar
+stat-value: tanımladığımız yazıyı koyu ve kalın yapar
+===Æ gölgeli container için Æ===
+rounded-lg shadow-lg card bg-base-100 , sınıf isimleri kullanılabilir
+w-1/4 : eğer 4 öğemiz yan yana sıralı dizilecekse kullanılabilir (genişliği 1/4 yapıyor)
+rounded-3xl: border-radius 1.5rem 'dir(öğenin köşelerini oval yapar)
+rounded-full: öğeyi tamamen yuvarlak yapar
+text-sky-500 : yazı rengini sky-500 yapar(twitter mavisine yakın)
+cursor-pointer : öğenin üzerine gelince imleci pointer'e çevirir
+underline : yazının altını çizilmiş yapar
+hover:underline : öğenin üzerine gelindiğinde altını çizili yapar(klasik css hover'ı)
+focus:border-blue-400 : öğenin üzerine tıklandığı(odaklanıldığı) zaman öğenin border'ının rengini blue-400 yapar(klasik css focus'u)
+focus:outline-none  : öğenin outline'nını none yapar.(inputa tıklanıldığında default olarak çıkan dışındaki flur'u yok ediyor)
+font-bold :  yazı tipini kalın yapar
+!!! mx-auto , width tanımlanmış öğeleri ortalamada işe yarıyor
+w-[36rem] : eğer w- 'de tailwind'in bize sunduğu width'ler yeterli değilse bu şekilde kendi width ölçümüzü tanımlayabiliriz
+!!! grid h-screen place-items-center , bu sınıflar öğenin ekranın ortasına gelmesini sağlıyor
+text-xs : yazı tipini xs yapar (daha bir çok size mevcut)
+placeholder-blue-400 : placeholder'ın rengini blue-400 yapar
+bg-[url('https://i.pinimg.com/originals/a5/de/39/a5de392b257f6c85f23c0a7cc91feb95.gif')] : background-img eklemenin bir yolu(bir diğeri ise extended'a sınıf olarak eklemek)
+bg-no-repeat : background-img tekrar etmemesini sağlar
+bg-cover : background-img'in bulunduğu div'i tamamen kaplar
+grid grid-cols-8 : grid bize 6 öğe sığacak şekilde bir satır verir , istersek bu satırın içerisine yalnızca 2 öğe koyup birinin kapsayacağı alanı col-span-7 diyerek 7 öğelik seçebiliriz (diğerine col-span-1 demesekte onu 1 olarak tanımlayacak)
+grid grid-cols-6 : bir öğeye col-start-1 col-end-3 diğerineyse col-end-7 col-span-2 verirsek bulundukları genişliğe göre başlangıç ve son'da ne kadar alan içerisinde bulunacaklarını söylemiş oluruz
+tailwind.config'te extend'in içerisine eklersek kullanabileceğimiz yeni bir ekran boyutu olur (sadece ekran boyutu için değil birçok konuda özelleştirilebilir bir alan extend)
+screens: {
+        xs: "450px",
+      },
+
+inset-0 : top:0 right:0 left:0 bottom:0 anlamına gelir
+break-words: boşluk olmadan yazılan uzun yazıların yalnızca enlemesine gitmesini önler
+
+
+
+                                                   FIREBASE
+Firebase'in kendi sitesinde öncelikle bir proje başlangıcı yapıyoruz. Orada projemize isim veriyor ve hangi app(web,apple,android)
+için oluşturacağımızı seçiyoruz. Daha sonra firebase bize firebase.config'te kullanamamız için bir api bilgisi veriyor.
+Masaüstünde oluşturduğumuz projemize npm install firebase komutuyla firebase'i indiriyoruz. İndirdikten sonra firebase.config.js
+adlı bir klasör oluşturuyor ve klasörü bize verilen api bilgilerini yapıştırıyoruz. En altına da daha sonra import edebilmek için
+export const db = getFirestore() 'u ekliyoruz(buradaki db: database). Tüm bunları bitirdiğimizde projemize firebase'ı eklemişiz demektir.
+Şimdi firebase console'a giderek(firebase'in kendi sitesinde oluşturduğumuz projeye) orada authentication'ı aktif edeceğiz. Hangi seçenekleri kullanacaksak
+ÖR: email/password , google, phone ,anonymous seçeceğiz ve auth için bunları kullanacağız.
+
+Register
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,                                       : eposta ve şifreyle kullanıcı oluşturmak için firebase'den import ediyoruz
+  updateProfile,
+} from "firebase/auth"
+import { setDoc, doc, serverTimestamp } from "firebase/firestore"       : zaman damgası kullanarak kullanıcıyı ayırt etmek ve kullanıcı bilgilerini depolamak için timestamp'le doc kullanıyoruz
+import { db } from "../../firebase.config"
+
+const createUser = async () => {              // kullanıcıyı oluşturmak için bir event'e try-cath ekliyoruz
+    try {
+      const auth = getAuth()
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email                     // kullanıcının e-mail'i bunu bir variable'a kaydedip daha sonra buraya ekliyoruz
+        password                 // kullanıcının şifresi bunu da bir variable'a kaydedip daha sonra buraya ekliyoruz
+      )
+
+      const user = userCredential.user                        // kullanıcı email ve password'la oluşturulduktan sonra kullanıcıyı user variable'ına kaydediyoruz
+
+      updateProfile(auth.currentUser, {
+        displayName: name,                                   // buradaki "name" bir variable, kullanıcıyı ayırt etmek için ona bir isim veriyoruz (zorunlu mu ? Değil) ve displayName olarak daha sonra kullanmak için kaydediyoruz
+      })
+
+      const userInformationCopy = {
+        userInformation,                          // userInformation'da bir variable , mevcutta varsa kullanıcının (doğum bilgileri etc.) bilgilerini ekliyoruz
+        password,                                 // şifreyi db'ye kaydettikten daha sonra firebase sahibi biz dahi panelden görüntüleyememek için sileceğiz, o yüzden buraya kaydettik
+      }
+      delete userInformationCopy.password                  // Daha sonra panelde biz daha görüntüleyemeyelim diye şifreyi siliyoruz
+      userInformationCopy.timestamp = serverTimestamp()    // zaman damgasıyla kullanıcının kayıt olduğu tarihi kaydediyoruz
+
+      await setDoc(doc(db, "users", user.uid), userInformationCopy)   // 2 ana 3 alt parametre kullanarak kullanıcıyı document'e kaydediyoruz(Cloud firestore'nın depolama birimi document'tir)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+Auth
+
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"   // kullanıcı giriş bilgilerini doğrulamak için
+
+const onSubmit = async () => {                                      // girişi bir event bağlıyoruz
+    try {
+      const auth = getAuth()                                       // auth'ı kuruyoruz
+
+      const userCredential = await signInWithEmailAndPassword(     // kullanıcı e-posta ve şifresini alıyoruz
+        auth,
+        email,
+        password
+      )
+      if (userCredential.user) {                              // eğer kullanıcı bulunur ve epostayla şifre uyuşursa ne olacağını belirliyoruz
+        console.log("giriş başarılı")
+      }
+    } catch (error) {
+      console.log(
+        "Giriş yaparken bir sorun oluştu. Lütfen bilgilerinizi kontrol ediniz"
+      )
+    }
+  }
+
+
+
+
+
+
+
+

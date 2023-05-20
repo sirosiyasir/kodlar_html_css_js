@@ -39,6 +39,8 @@ ctrl+a : dosyadaki bütün her şeyi seçer
 ctrl+d : dosyada seçtiğiniz yazıdan başka varsa onlarıda seçer
 Alt : Alt tuşuna basılı tutarak tıkladığımız her yerde bir pointer daha çıkar
 Alt : Alt tuşuna, bir yazıyı(div'i vb) seçtikten sonra basılı tutarsak ve aynı anda ok tuşlarıyla aşağı veya yukarı yaparsak seçili öğeyi alt veya üst satıra taşır
+ctrl+l : vs code'da mause'un üzerinde bulunduğu satırı seçer
+
 
 
                                        HTML
@@ -130,7 +132,7 @@ body {
 }   
                                                                                   
 ______________________
-position: relative;
+position: fixed;
 transform: translate(-50%, -50%);         : öğeyi sayfaya ortalamak için kullanılır (https://www.youtube.com/watch?v=_ERcJIacsKA  bu linkteki adam söylüyor)
 top: 50%                                    eğer iki öğeye uygulayacaksan; div oluşturup css'de bu özellikleri o div'e atayacaksın,!!!text-align center yapıp ortaya getireceksin(yoksa gelmez)
 left: 50%
@@ -258,7 +260,8 @@ specify families'deki istediğin fontu koplaya ve yapıştır. (Örneğin montse
 {owerflow:auto} :Ekran boyutu tamsa kaydırma çubuğu çıkmaz lakin eğer aşağıya (veya yana) doğru daha fazla içerik varsa kaydırma çubuğu çıkar
 {overflow-y:scroll} : ekrandaki içerik ne olursa olsun (tam olmasa dahi) kaydırma çubuğu bulunur(y ekseninde , istersek x ekseninde de aynısını yapabiliriz)
 {position:fixed} : tanımladığımız div'in position'ını ne olursa olsun ekranda gözükecek şekilde ayarlar (bir nevi sabitler)
-
+css'de bir div'i(veya herhangi bir elementi) mevcut bir divin en altına yerleştirmek istiyorsak(twitter projemdeki navbar'da mevcut olan profil bilgileri kısmı gibi) grid grid-rows-1'i kullanabiliriz(mevcut div'in içerisinde başka 2 div varsa ve bu 2 divden
+biri en alta koymak istediğimizse)
 
 
 
@@ -810,6 +813,20 @@ const information = ["name"]
        } else if (!("name" in information)) {                  : information adlı array'in içerisinde "name" varsa setButtonActive(false) olacak yoksa (true) olacak
         setButtonActive(true)
        }
+
+tag.insertAdjacentHTML("beforeend","Hello") : insertAdjacentHTML, kendisinden('.'dan) önce gelen elementin(<h1> etc.) önüne ,arkasına yani bitişiğinde bir yere istediğimizi eklememizi sağlar
+
+for in : for in, for(const x in countries){let country= `${x}`} yaptığımız taktirde countries object'indeki object'leri bize verecektir. {let countryName=`${countries[x]}`} dediğimiz taktirde de objectlerin karşılarındaki değeri verecektir 
+
+************ navigator.clipboard.writeText(x)   : parantez içerisindeki değeri panoya kopyalamamızı sağlar(addEventListener'la birlikte kullanarak click'e veya submit'e koşullayabiliriz)
+
+*******▓Javascript'te yazıyı konuşmaya çevirme▓*******
+const synth = window.speechSynthesis                    : default olarak bize verilen window.speechSyntehesis object'ini synth variable'ına kaydediyoruz
+let ourText = "Merhaba, ben Yasir"                      : konuşmaya çevireceğimiz yazıyı outText variable'ına kaydediyoruz
+const utterThis = new SpeechSynthesisUtterance(ourText) : yazımızı konuşmaya dönüştürebilecek SpeechSynthesisUtterance nesnesinin içerisine ekliyoruz
+synth.speak(utterThis)                                  : Nihayet synth.speak() komutuyla yazımızı konuşmaya döndürüyoruz
+
+
 
 
 
@@ -1461,6 +1478,10 @@ Yukarıdaki örnekte logIn bir boolen'a eşitlendiği için şu şekilde de yaza
 ***&& in JS*** UYGULAMALI ÖRNEK ***! in JS***
 https://codesandbox.io/s/conditional-rendering-practice-forked-g5eini?file=/src/components/Form.jsx
 
+***?? in JS***
+iki adet soru işaretinden önce gelen değer boşsa sağına gelen değeri döndürür eğer boş değilse sol taraftaki değeri döndürür
+ÖR: boolean ?? e.target.value  : eğer boolean null'a eşitse e.target.value'deki değeri döndürür eğer boolean true veya false'a eşitse o zaman true veya false döndürür
+
 
 -----React State-----
 UI = f(state) : kullanıcılara yansıttığımız web sitesinde aktif olarak değişiklik yapmak için stateleri kullanırız. Belirli durumlarda ne olmasını istediğimi söyleriz yani User Interface = function(){}'dır
@@ -1590,7 +1611,7 @@ function App(){
 }
 
 ▓▓▓▓▓ REACT'TE .env Kullanmak ▓▓▓▓▓
-ana klasörde .env dosyasu oluşturduktan sonra içerisine x="" şeklinde bilgiler ekleyiyoruz. Daha sonra bu bilgileri klasör içerisinde bulunun bütün dosyalarda {process.env.x} şeklinde çağırabiliyoruz
+ana klasörde .env dosyasu oluşturduktan sonra içerisine REACT_APP_API_CODE="" şeklinde bilgiler ekleyiyoruz.(REACT_APP_'LE BAŞLAMAK ZORUNDA!!) Daha sonra bu bilgileri klasör içerisinde bulunun bütün dosyalarda {process.env.REACT_APP_API_CODE} şeklinde çağırabiliyoruz
 
 ▓▓▓▓▓ REACT'TE CONTEXT KULLANIMI ▓▓▓▓▓
 import { createContext } from "react"
@@ -1885,6 +1906,86 @@ const onSubmit = async () => {                                      // girişi b
   }
 
 
+
+
+
+
+
+                                                                  NEXT.JS
+Pre-rendering(ön oluşturma): Next.js bizim için her sayfayı önceden oluşturur.Bu daha iyi performans ve SEO sağlar
+
+*Static Generation: Next.js'de her sayfa(pages klasöründeki her sayfa) dosyadan dışarıya aktarılan bir react bileşenidir.Bu bileşenlere /dosyaismi adresinden
+ulaşılabilir.Yani React'teki router-dom npx'inin aksine, Next.js bunu bize default olarak sağlıyor. Ayrıca Next.js'de Static Generation'ının kullanılmasının en büyük
+faydası sayfaların tamamının pre-rendering olarak oluşturulmasıdır. Yani sayfalar kullanıcı her istek yaptığında yeniden oluşmaz, önceden bir defa oluşturulur ve kullanıcı her ulaşmak
+istediğinde önceden oluşturulan sayfa getirilir. Statik Oluşturma , derleme zamanında bir kez gerçekleştiğinden, sık sık güncellenen veya her kullanıcı isteğinde değişen veriler için uygun değildir.
+
+*Server-Side Rendering: Server-Side Rendering, sayfayı kullanıcı her istek yaptığında oluşturur. Sıralama: page request > Next.js > HTML oluşturma > UI şeklindedir. Bu her kullanıcı istek yaptığında yeniden gerçekleşir
+Eğer Server-Side Rendering'le kullanıcı istek yaptığında veriyi getirmek istersek ,  getServerSideProp() function'ını kullanacağız
+
+** Static Generation vs Server-Side Rendering : Eğer kullanıcıya daha önceden oluşturulup gösterebileceğimiz bir sayfamız varsa , kesinlikle static generation kullanmalıyız. Yani "Burada Static-Generation kullanabilir miyim ?" sorusunun cevabı evetse
+Static Generation kullanmalıyız.Static Generation , derleme zamanında bir kez gerçekleştiğinden, sık sık güncellenen veya her kullanıcı isteğinde değişen veriler için uygun değildir. Blog sayfaları, dökümanlar, e-ticaret siteleri etc. bir çok uygulamada Static Generation işimizi "hızlıca" görecektir. Eğer sık sık data yenileniyorsa , sayfanın sıklıkla güncellenmesi gerekiyorsa işte o zaman
+Server-Side Rendering'i kullanmalıyız. Çünkü eğer bir işlem sonucunda bir data getirilecek ve bu kullanıcının seçim yapmasına bağlı olacaksa işte o zaman sayfayı önceden oluşturamayız ve kullanıcının istek yapmasını bekleriz(Bu tarz Server-Side Rendering'ler 
+Static Generation'a göre daha yavaştırlar)
+
+**********▓******    STATIC GENERATION'DA getStaticProps KULLANARAK DATA GETİRMEK     ******▓************
+Yukarıdaki yazıda data'yı getirmemiz gereken durumlarda static yerine server-side rendering'i kullanmamız gerektiğine değinmiştim. Bu static kullanarak getiremeyeceğimiz anlamına gelmiyor
+ÖR: 
+export default function Home(props) { ... }
+export async function getStaticProps() {
+  // Harici datayı API, DB , file system etc.'dan getir 
+  const data = ...                                                  : Bu örnekte tam olarak şunu diyoruz : Hey, bu sayfanın bazı veri bağımlılıkları var — bu nedenle, bu sayfayı derleme zamanında önceden oluşturduğunuzda, önce bunları çözdüğünüzden emin olun!
+  // `props`un değeri `Home` component'ına iletilecek                 Sayfa oluşturulmadan önce datayı getirmiş ve HTML'i data geldikten sonra oluşturmuş oluyoruz.
+  return {
+    props: ...
+  }
+}
+
+
+*********** Next.js'te "/" otomatik olarak index.js'dir. npx create-next-app komutuyla next.js'i oluşturduğumuzda next.js bize default olarak react-router-dom kullanmadan sayfalar oluşturmayı sağlar
+bu sayfalar pages klasörünün altında oluştururuz. ÖR: pages klasörünün altında first-page.js oluşturduğumuzda localhost:3000/first-page yazdığımızda bizi direkt olarak first-page.js 'e yönlendirir.
+
+****** Next.js otomatik olarak kod-bölmesi yapar. Bu , sayfalar arasında geçiş yapıldığında yalnızca gerekli olanların yüklenmesi anlamına gelir. Yani eğer kök "/" sayfamızdaysak diğer 100'lerce satırlık koda sahip sayfalarımız
+varsa Next.js sadece kök sayfamızı yükler. Eğer ki başka bir sayfaya gidersek işte o zaman o sayfanın kodunu işler. Burada bir püf nokta var ki o da eğer içerisinde bulunduğumuz sayfa başka bir sayfaya yönlendireceğimiz <Link>
+component'ı varsa next.js o component'ı önceden işler. Bu sayede Link'e tıklanıldığı anda sayfa açılır.
+
+****** Next.js'in bize getirdiği faydalardan biri de belirli sayfalar hata veriyorsa yalnızca o sayfalar hata verir, diğer sayfalar çalışmaya devam eder
+
+▓ Eğer next.js app'imiz dışında bir sayfaya yönlendirme yapacaksak o zaman Link component'ını değil de <a> etiketini kullanmalıyız.
+
+**Hydration**
+Next.js'te prerendering işleminde statik html döndükten sonra js dosyalarının yüklenip sayfanın interaktif hale gelmesi olayına denir.(Genel anlamında 'sulamadır'. Yani bir web sayfası oluşturulduktan sonra onu veri,js,data etc. gibi şeylerle donatmaktır)
+Bunun console.log'da hatasıyla çok karşılaşılır. Başlıca nedenlerinden biri kullanıcının ilk gördüğü(statik html) hydration işleminden sonra serverla uyuşmuyor'dur. Bu hatanın nedeniyse 'çoğunlukla' öğeleri yanlış etiketlere sarmaktır.
+
+*meta tags (like og:image), sayfanın içeriğini açıklamak için kullanırız. ÖR: <meta property="og:image" /> veya <meta name="og:title" content={siteTitle} />
+
+*****NEXT.JS'DE CSS EKLEMEK*****
+Oluşturduğumuz bir .js dosyasına CSS eklemenin Next.js'de birçok yolu vardır. Next.js satır içi css'i sass'ı css modüllerini destekliyor. Eğer oluşturduğumuz .js'e özel bir css dosyası oluşturmak istiyorsak ÖR: layout.js için layout.module.css dosyası oluşturalım(.module.css zorunlu)
+Oluşturduğumuz bu css dosyasını daha sonra layout.js'e import edelim. layout.js'e import ettikten sonra , en dışdaki etikete className={styles.container} şeklinde css'i ekleyebiliriz. Buradaki styles ismi, .module.css'i import ederken kullandığım isim. "styles" yerine herhangi bir isim seçilebilir.
+Buradaki .container ise .module.css'de bulunan container sınıfı
+
+
+****NEXT.JS'DE JAVASCRIPT'i DISABLE ETMEK*****
+Next.js'le oluşturulan bir uygulamayı tarayıcımızda çalıştırır ve daha sonra tarayıcımızda Javascript'i disabled edersek, uygulamanın Javascript olmadan da oluşturulduğunu görürüz. Bunun nedeni Next.js'nin uygulamayı statik HTML'de önceden oluşturmasıdır ve JavaScript çalıştırmadan uygulama kullanıcı arayüzünü görmenize olanak tanır.
+Aynı durumu React.js için yaparsak(Next.js olmadan) bu sefer uygulamanın tarayıcımızda çalışmayacağını görüntüleyebiliriz(ÖR: Youtube). Bunun nedeni React.js için statik HTML'in önceden oluşturulmamasıdır(pre-rendering)
+
+***************** COMPONENT'LAR *************
+******
+import Link from "next/link"     : Link component'ını import ederek sayfalar arasında kolay geçiş yapabiliriz
+Ör: <h1 className="title">Read <Link href="/posts/first-post">this page!</Link></h1>   : kullanıcı this page! yazısına tıkladığında daha önceden oluşturulmuş posts klasörünün altındaki first-post.js'e yönlendirilecek
+******
+import Image from "next/link"    : Image component'ını import ederek görsellerimizi standart html etiketi olan <img/> kullanamadan next.js sayfamıza ekleyebiliriz. Bunun en önemli etkisi Image component'ının default olarak görsellerimizi farklı screen size'lara uygun şekilde optimize etmesidir
+Ör: <Image src="../../public/images/ben.jpg" width={130} height={130} />
+******
+import Head from "next/head"   : Head component'ını import ederek , pages'in altında oluşturduğumuz bütün next.js dosyalarımızda head'le ilgili bilgiler oluşturabiliriz. (en basitinden <title></title> etc.)
+<Head>
+<title>First Post</title>
+</Head>
+******
+import Script from 'next/script'   : Script component'ını import ederek içerisinde bulunduğumuz sayfaya üçüncü parti yazılımları ekleyebiliriz. Basitçe standar html'deki <script></script> tagına eşdeğer.
+<Script
+src="https://connect.facebook.net/en_US/sdk.js"              : Basitçe Head etiketini altında tanımlayabileceğimiz klasik html'deki <script> tagı next.js de bize component olarak veriliyor. Örnekteki "strategy" property bizim için dosyanın ne zaman yüklenmesi gerektiğini kontrol eder. lazyOnload değeriyse tarayıcının boşta kaldığı sürece boyunca bu third-part script'i yüklemesini söyler
+strategy="lazyOnload"                                          Örnekteki onLoad ise script yüklendikten sonra ne olmasını istediğimi söyleyeceğimiz bir function oluşturmamızı sağlar
+onLoad={() => console.log("script loaded")} />
 
 
 
